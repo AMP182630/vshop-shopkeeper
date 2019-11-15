@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import OpalImagePicker
+
 protocol PassImgDelegate {
     func selectedImage(image: UIImage)
 }
+
+protocol PassArrayImgDelegate {
+    func selectedArrayImage(arrImg: [UIImage])
+}
+
 var delegate : PassImgDelegate?
+var arrayImgdelegate : PassArrayImgDelegate?
 
 class ImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -18,6 +26,8 @@ class ImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
     
     var imagePicker = UIImagePickerController()
     var currentViewController = UIViewController()
+    var arrImages : [UIImage] = []
+    var cameFrom = String()
     
     //MARK:- ACTION SHEET
     
@@ -50,15 +60,24 @@ class ImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
             self.currentViewController.present(alert, animated: true, completion: nil)
         }
     }
-   
+    
     //MARK:- OPEN GALLERY
     
     func openGallary() {
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-        imagePicker.mediaTypes = ["public.image"]
-        imagePicker.allowsEditing = true
-        self.currentViewController.present(imagePicker, animated: true, completion: nil)
+        if cameFrom == "StoreImageViewController" {
+            let imagePicker = OpalImagePickerController()
+            imagePicker.imagePickerDelegate = self
+            imagePicker.maximumSelectionsAllowed = 10
+            imagePicker.modalPresentationStyle = .overFullScreen
+            self.currentViewController.present(imagePicker, animated: true, completion: nil)
+        }else{
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            imagePicker.mediaTypes = ["public.image"]
+            imagePicker.allowsEditing = true
+            imagePicker.modalPresentationStyle = .overFullScreen
+            self.currentViewController.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     //MARK:- IMAGE PICKER CONTROLLER DELEGATE
@@ -71,5 +90,26 @@ class ImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         currentViewController.dismiss(animated: true, completion: nil)
+    }
+}
+extension ImagePicker: OpalImagePickerControllerDelegate {
+    func imagePickerDidCancel(_ picker: OpalImagePickerController) {
+        //Cancel action?
+    }
+    
+    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
+        //Save Images, update UI
+        for i in images{
+            arrImages.append(i)
+        }
+        //        arrImages = []
+        //        var dict : [String:Any] = [:]
+        //        for imageObj in images {
+        //            dict["Image"] = imageObj
+        //            arrImages.append(dict)
+        //        }
+        arrayImgdelegate?.selectedArrayImage(arrImg: arrImages)
+        //Dismiss Controller
+        self.currentViewController.presentedViewController?.dismiss(animated: true, completion: nil)
     }
 }

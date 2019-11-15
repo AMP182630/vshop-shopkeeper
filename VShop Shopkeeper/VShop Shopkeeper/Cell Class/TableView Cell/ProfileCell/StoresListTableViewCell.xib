@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StoresListTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="StoresListTableViewCell" customModule="VShopRomingStaff" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="465" height="144"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="465" height="144"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zA6-WT-UlS">
+                        <rect key="frame" x="0.0" y="0.0" width="465" height="144"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothingStoreImage" translatesAutoresizingMaskIntoConstraints="NO" id="inP-Jv-9Kn">
+                                <rect key="frame" x="20" y="20" width="90" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="P6Z-nI-jAd"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8im-xc-hWY">
+                                <rect key="frame" x="118" y="20" width="347" height="104"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LA Michoalana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwp-JG-fR8">
+                                        <rect key="frame" x="0.0" y="0.0" width="120.5" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="raB-nq-ggh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 E. Beacon Ave. Ocoee, FL 34761" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0x-BG-Vte">
+                                        <rect key="frame" x="0.0" y="43.5" width="229" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added On 7-9-2018 7:00pm" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyx-U8-gZi">
+                                        <rect key="frame" x="0.0" y="88" width="183.5" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="rHT-yo-HMK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a0x-BG-Vte" secondAttribute="trailing" constant="8" id="5GK-8J-364"/>
+                                    <constraint firstItem="a0x-BG-Vte" firstAttribute="leading" secondItem="8im-xc-hWY" secondAttribute="leading" id="BmP-Nn-WyM"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hyx-U8-gZi" secondAttribute="bottom" id="Lzy-xJ-KdH"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hyx-U8-gZi" secondAttribute="trailing" constant="8" id="Ou7-a8-Vqf"/>
+                                    <constraint firstItem="Hyx-U8-gZi" firstAttribute="leading" secondItem="8im-xc-hWY" secondAttribute="leading" id="RgC-IA-kpI"/>
+                                    <constraint firstItem="qwp-JG-fR8" firstAttribute="top" secondItem="8im-xc-hWY" secondAttribute="top" id="guw-NR-tbV"/>
+                                    <constraint firstItem="a0x-BG-Vte" firstAttribute="centerY" secondItem="8im-xc-hWY" secondAttribute="centerY" id="kAP-xe-vLA"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qwp-JG-fR8" secondAttribute="trailing" constant="8" id="qML-ga-4gs"/>
+                                    <constraint firstItem="qwp-JG-fR8" firstAttribute="leading" secondItem="8im-xc-hWY" secondAttribute="leading" id="sJe-db-zgn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="inP-Jv-9Kn" firstAttribute="top" secondItem="zA6-WT-UlS" secondAttribute="top" constant="20" id="GTQ-Op-4Ng"/>
+                            <constraint firstItem="8im-xc-hWY" firstAttribute="top" secondItem="inP-Jv-9Kn" secondAttribute="top" id="KVR-H0-CzS"/>
+                            <constraint firstItem="inP-Jv-9Kn" firstAttribute="leading" secondItem="zA6-WT-UlS" secondAttribute="leading" constant="20" id="O8S-PR-5qz"/>
+                            <constraint firstAttribute="trailing" secondItem="8im-xc-hWY" secondAttribute="trailing" id="PfI-dm-wK2"/>
+                            <constraint firstAttribute="bottom" secondItem="inP-Jv-9Kn" secondAttribute="bottom" constant="20" id="hbv-aa-Osu"/>
+                            <constraint firstItem="8im-xc-hWY" firstAttribute="bottom" secondItem="inP-Jv-9Kn" secondAttribute="bottom" id="jUt-aj-VQn"/>
+                            <constraint firstItem="8im-xc-hWY" firstAttribute="leading" secondItem="inP-Jv-9Kn" secondAttribute="trailing" constant="8" id="uzu-98-61G"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zA6-WT-UlS" secondAttribute="trailing" id="FRn-5V-roY"/>
+                    <constraint firstItem="zA6-WT-UlS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="QWn-XO-hEe"/>
+                    <constraint firstAttribute="bottom" secondItem="zA6-WT-UlS" secondAttribute="bottom" id="Umv-vN-c6j"/>
+                    <constraint firstItem="zA6-WT-UlS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VbE-9B-1UB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="236.95652173913047" y="143.30357142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="clothingStoreImage" width="89" height="86"/>
+    </resources>
+</document>

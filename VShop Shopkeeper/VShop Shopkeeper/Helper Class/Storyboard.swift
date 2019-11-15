@@ -12,7 +12,9 @@ enum Storyboard: String {
     case main = "Main"
     case logIn = "Login"
     case orderHistory = "OrderHistory"
-    case account = "Account"
+    case addNewStore = "AddNewStore"
+    case profile = "Profile"
+    case invite = "Invite"
     
     
     func instantiate<T: UIViewController>(viewController type: T.Type) -> T? {

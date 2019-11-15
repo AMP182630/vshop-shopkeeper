@@ -17,7 +17,7 @@ class SideBar: UIViewController {
     
     //MARK:- Public Variables -
     
-    let menuList = ["Sales Executive","Invite","Staff Performance","Profile","Logout"]
+    let menuList = ["Sales Executive","Order History","Invite","Staff Performance","Profile","Logout"]
     
     //MARK:- Life Cycle Methods -
 
@@ -69,18 +69,23 @@ extension SideBar : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.sideMenuController?.hideMenu()
         if indexPath.row == 0 {
-            sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") }, with: "HomeVC")
-            sideMenuController?.setContentViewController(with: "HomeVC")
-        } else if indexPath.row == 1 {
+            sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SalesExecutiveVC") }, with: "SalesExecutiveVC")
+            sideMenuController?.setContentViewController(with: "SalesExecutiveVC")
+        }else if indexPath.row == 1{
             sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "OrderHistory", bundle: nil).instantiateViewController(withIdentifier: "OrderHistoryVC") }, with: "OrderHistoryVC")
             sideMenuController?.setContentViewController(with: "OrderHistoryVC")
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 2{
+            sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "Invite", bundle: nil).instantiateViewController(withIdentifier: "InviteVC") }, with: "InviteVC")
+            sideMenuController?.setContentViewController(with: "InviteVC")
+        } else if indexPath.row == 3{
             sideMenuController?.cache(viewControllerGenerator: {
-                UIStoryboard.init(name: "Account", bundle: nil).instantiateViewController(withIdentifier: "AccountVC") }, with: "AccountVC")
-            sideMenuController?.setContentViewController(with: "AccountVC")
-        } else if indexPath.row == 3 {
-            
-        }else if indexPath.row == 4{
+                UIStoryboard.init(name: "Staff Performance", bundle: nil).instantiateViewController(withIdentifier: "StaffPerformanceVC") }, with: "StaffPerformanceVC")
+            sideMenuController?.setContentViewController(with: "StaffPerformanceVC")
+        } else if indexPath.row == 4{
+            sideMenuController?.cache(viewControllerGenerator: {
+                UIStoryboard.init(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") }, with: "ProfileVC")
+            sideMenuController?.setContentViewController(with: "ProfileVC")
+        }else{
             
         }
     }

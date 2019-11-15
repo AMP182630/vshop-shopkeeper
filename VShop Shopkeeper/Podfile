@@ -15,4 +15,5 @@ pod 'IQKeyboardManagerSwift'
  pod 'SDWebImage'
  pod 'Localize-Swift'
  pod 'FloatRatingView'
+ pod 'OpalImagePicker'
 end

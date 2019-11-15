@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NextButtonTableViewCell" rowHeight="103" id="KGk-i7-Jjw" customClass="NextButtonTableViewCell" customModule="VShopRomingStaff" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs2-Zg-gbL">
+                        <rect key="frame" x="15" y="40" width="290" height="44"/>
+                        <color key="backgroundColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="N4m-PQ-yrJ"/>
+                        </constraints>
+                        <state key="normal" title="Next">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hs2-Zg-gbL" secondAttribute="trailing" constant="15" id="aou-ZH-pxy"/>
+                    <constraint firstItem="hs2-Zg-gbL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cbd-py-2Cb"/>
+                    <constraint firstAttribute="bottom" secondItem="hs2-Zg-gbL" secondAttribute="bottom" constant="40" id="dNV-f6-Fcn"/>
+                    <constraint firstItem="hs2-Zg-gbL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="hzA-lY-5wd"/>
+                    <constraint firstItem="hs2-Zg-gbL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jBI-dj-6V7"/>
+                    <constraint firstItem="hs2-Zg-gbL" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="wBm-7E-s4p"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nextButton" destination="hs2-Zg-gbL" id="8kE-n1-ZPX"/>
+            </connections>
+            <point key="canvasLocation" x="-406" y="12"/>
+        </tableViewCell>
+    </objects>
+</document>

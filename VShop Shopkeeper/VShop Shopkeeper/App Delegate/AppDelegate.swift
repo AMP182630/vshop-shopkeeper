@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func navigationBarSetUp() {
+    func navigationBarSetUp(){
         SideMenuController.preferences.basic.enablePanGesture = true
 //        UINavigationBar.appearance().barTintColor = ColorConstant.AppColor.defaultNavigationColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
