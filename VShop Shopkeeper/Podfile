@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'VShop Shopkeeper' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for VShop Shopkeeper
+
+pod 'IQKeyboardManagerSwift'
+ pod 'SideMenuSwift'
+ pod 'Alamofire'
+ pod 'MBProgressHUD'
+ pod 'SwiftyJSON'
+ pod 'SDWebImage'
+ pod 'Localize-Swift'
+ pod 'FloatRatingView'
+end
