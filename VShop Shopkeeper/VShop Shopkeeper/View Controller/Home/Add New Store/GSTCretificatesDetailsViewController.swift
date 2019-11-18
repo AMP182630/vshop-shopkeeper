@@ -38,7 +38,8 @@ class GSTCretificatesDetailsViewController: UIViewController,PassImgDelegate {
         gstCertiView.documentNumberLabel.text = "GST Number"
         self.document = gstCertiView
         GSTCertificateView.addSubview(gstCertiView)
-        
+        gstCertiView.frontButton.addTarget(self, action: #selector(clickFrontImg(sender:)), for: .touchUpInside)
+        gstCertiView.backButton.addTarget(self, action: #selector(clickBackImg(sender:)), for: .touchUpInside)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationController?.view.tintColor = UIColor.white
         self.navigationItem.title = "GST Certi Details"

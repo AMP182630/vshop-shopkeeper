@@ -9,7 +9,7 @@
 import UIKit
 
 class SideBar: UIViewController {
-
+    
     //MARK:- Outlets -
     
     @IBOutlet var menuListTableView: UITableView!
@@ -17,10 +17,10 @@ class SideBar: UIViewController {
     
     //MARK:- Public Variables -
     
-    let menuList = ["Sales Executive","Order History","Invite","Staff Performance","Profile","Logout"]
+    let menuList = ["Sales Executive","Order History","Call Log","Request Call back","Invite","Staff Performance","Rating & Review","Advertise Video","Profile","Logout"]
     
     //MARK:- Life Cycle Methods -
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewConfiguration()
@@ -45,7 +45,7 @@ class SideBar: UIViewController {
     }
     
     //MARK:- Functions -
-   
+    
     
 }
 
@@ -74,14 +74,28 @@ extension SideBar : UITableViewDataSource,UITableViewDelegate {
         }else if indexPath.row == 1{
             sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "OrderHistory", bundle: nil).instantiateViewController(withIdentifier: "OrderHistoryVC") }, with: "OrderHistoryVC")
             sideMenuController?.setContentViewController(with: "OrderHistoryVC")
-        } else if indexPath.row == 2{
+        }else if indexPath.row == 2{
+            sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "CallLog", bundle: nil).instantiateViewController(withIdentifier: "CallLogVC") }, with: "CallLogVC")
+            sideMenuController?.setContentViewController(with: "CallLogVC")
+        }else if indexPath.row == 3{
+            sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "RequestCallback", bundle: nil).instantiateViewController(withIdentifier: "RequestCallbackVC") }, with: "RequestCallbackVC")
+            sideMenuController?.setContentViewController(with: "RequestCallbackVC")
+        } else if indexPath.row == 4{
             sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "Invite", bundle: nil).instantiateViewController(withIdentifier: "InviteVC") }, with: "InviteVC")
             sideMenuController?.setContentViewController(with: "InviteVC")
-        } else if indexPath.row == 3{
+        } else if indexPath.row == 5{
             sideMenuController?.cache(viewControllerGenerator: {
-                UIStoryboard.init(name: "Staff Performance", bundle: nil).instantiateViewController(withIdentifier: "StaffPerformanceVC") }, with: "StaffPerformanceVC")
-            sideMenuController?.setContentViewController(with: "StaffPerformanceVC")
-        } else if indexPath.row == 4{
+                UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SalesExecutiveVC") }, with: "SalesExecutiveVC")
+            sideMenuController?.setContentViewController(with: "SalesExecutiveVC")
+        }else if indexPath.row == 6{
+            sideMenuController?.cache(viewControllerGenerator: {
+                UIStoryboard.init(name: "RatingsAndReview", bundle: nil).instantiateViewController(withIdentifier: "RatingReviewsVC") }, with: "RatingReviewsVC")
+            sideMenuController?.setContentViewController(with: "RatingReviewsVC")
+        }else if indexPath.row == 7{
+            sideMenuController?.cache(viewControllerGenerator: {
+                UIStoryboard.init(name: "AdvertiseVideo", bundle: nil).instantiateViewController(withIdentifier: "AdvertiseVideoVC") }, with: "AdvertiseVideoVC")
+            sideMenuController?.setContentViewController(with: "AdvertiseVideoVC")
+        } else if indexPath.row == 8{
             sideMenuController?.cache(viewControllerGenerator: {
                 UIStoryboard.init(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") }, with: "ProfileVC")
             sideMenuController?.setContentViewController(with: "ProfileVC")

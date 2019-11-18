@@ -14,7 +14,6 @@ class PanCardDetailsViewController: UIViewController,PassImgDelegate {
     
     @IBOutlet var panCardDetailsView: UIView!
     
-    
     //MARK:- Variables -
     
     var arrImages = [UIImage]()

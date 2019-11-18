@@ -38,7 +38,8 @@ class OtherDocumentDetailsViewController: UIViewController,PassImgDelegate {
         otherDocumentView.documentNumberLabel.text = "Other Document Number"
         self.document = otherDocumentView
         otherDocumentDetailsView.addSubview(otherDocumentView)
-        
+        otherDocumentView.frontButton.addTarget(self, action: #selector(clickFrontImg(sender:)), for: .touchUpInside)
+        otherDocumentView.backButton.addTarget(self, action: #selector(clickBackImg(sender:)), for: .touchUpInside)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationController?.view.tintColor = UIColor.white
         self.navigationItem.title = "Other Document Details"

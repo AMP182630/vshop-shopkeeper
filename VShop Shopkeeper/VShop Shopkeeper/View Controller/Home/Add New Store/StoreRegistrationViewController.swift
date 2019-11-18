@@ -38,7 +38,8 @@ class StoreRegistrationViewController: UIViewController,PassImgDelegate {
         storeRegiView.documentNumberLabel.text = "Store Registration Number"
         self.document = storeRegiView
         storeRegistrationDetailsView.addSubview(storeRegiView)
-        
+        storeRegiView.frontButton.addTarget(self, action: #selector(clickFrontImg(sender:)), for: .touchUpInside)
+        storeRegiView.backButton.addTarget(self, action: #selector(clickBackImg(sender:)), for: .touchUpInside)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationController?.view.tintColor = UIColor.white
         self.navigationItem.title = "Store Registration Certi. Details"

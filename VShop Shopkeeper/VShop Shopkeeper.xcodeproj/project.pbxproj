@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3432A43523827FCB008198BA /* CallLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3432A43323827FCB008198BA /* CallLogCell.swift */; };
+		3432A43623827FCB008198BA /* CallLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3432A43423827FCB008198BA /* CallLogCell.xib */; };
+		3432A43923828972008198BA /* CallLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3432A43823828972008198BA /* CallLog.storyboard */; };
+		3432A43B238289B7008198BA /* CallLogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3432A43A238289B7008198BA /* CallLogVC.swift */; };
 		3435A71A237D827600DBE491 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3435A719237D827600DBE491 /* EditProfileVC.swift */; };
+		344DF27823828DA8008AF4D6 /* OutgoingcallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DF27723828DA8008AF4D6 /* OutgoingcallVC.swift */; };
 		34690A41237E824F00487F0E /* OrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34690A3B237E824F00487F0E /* OrderDetailCell.xib */; };
 		34690A42237E824F00487F0E /* PriceDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34690A3C237E824F00487F0E /* PriceDetailCell.xib */; };
 		34690A43237E824F00487F0E /* OrderDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34690A3D237E824F00487F0E /* OrderDetailCell.swift */; };
@@ -16,6 +21,23 @@
 		34690A46237E824F00487F0E /* OrderHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34690A40237E824F00487F0E /* OrderHistoryCell.swift */; };
 		34690A48237E87AE00487F0E /* OrderHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34690A47237E87AE00487F0E /* OrderHistoryVC.swift */; };
 		346CA04B237E80E4008286C0 /* OrderHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346CA04A237E80E4008286C0 /* OrderHistory.storyboard */; };
+		3475E3D1238292BF00CC1FFC /* VideocallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3D0238292BF00CC1FFC /* VideocallVC.swift */; };
+		3475E3D523829D5100CC1FFC /* CallForwardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3D423829D5100CC1FFC /* CallForwardVC.swift */; };
+		3475E3D823829DA000CC1FFC /* CallForwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3D623829DA000CC1FFC /* CallForwardCell.swift */; };
+		3475E3D923829DA000CC1FFC /* CallForwardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3475E3D723829DA000CC1FFC /* CallForwardCell.xib */; };
+		3475E3DD2382A54800CC1FFC /* RequestCallbackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3DB2382A54800CC1FFC /* RequestCallbackCell.swift */; };
+		3475E3DE2382A54800CC1FFC /* RequestCallbackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3475E3DC2382A54800CC1FFC /* RequestCallbackCell.xib */; };
+		3475E3E12382A78D00CC1FFC /* RequestCallbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3E02382A78D00CC1FFC /* RequestCallbackVC.swift */; };
+		3475E3E32382A83200CC1FFC /* RequestCallback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3475E3E22382A83200CC1FFC /* RequestCallback.storyboard */; };
+		3475E3E62382AE9900CC1FFC /* RatingsAndReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3475E3E52382AE9900CC1FFC /* RatingsAndReview.storyboard */; };
+		3475E3E82382AF5300CC1FFC /* RatingReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3E72382AF5300CC1FFC /* RatingReviewsVC.swift */; };
+		3475E3EC2382B00000CC1FFC /* RatingReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3EA2382B00000CC1FFC /* RatingReviewCell.swift */; };
+		3475E3ED2382B00000CC1FFC /* RatingReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3475E3EB2382B00000CC1FFC /* RatingReviewCell.xib */; };
+		3475E3F22382C8CC00CC1FFC /* AdvertiseVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3F02382C8CC00CC1FFC /* AdvertiseVideoCell.swift */; };
+		3475E3F32382C8CC00CC1FFC /* AdvertiseVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3475E3F12382C8CC00CC1FFC /* AdvertiseVideoCell.xib */; };
+		3475E3F52382CB6700CC1FFC /* AdvertiseVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3475E3F42382CB6700CC1FFC /* AdvertiseVideo.storyboard */; };
+		3475E3F72382CBE800CC1FFC /* AdvertiseVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3F62382CBE800CC1FFC /* AdvertiseVideoVC.swift */; };
+		3475E3F92382D29500CC1FFC /* AddVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3F82382D29500CC1FFC /* AddVideoVC.swift */; };
 		3492645F237D8C66002178EA /* PermissionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3492645E237D8C66002178EA /* PermissionVC.swift */; };
 		34926462237D8C95002178EA /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34926460237D8C95002178EA /* PermissionCell.swift */; };
 		34926463237D8C95002178EA /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34926461237D8C95002178EA /* PermissionCell.xib */; };
@@ -119,7 +141,12 @@
 
 /* Begin PBXFileReference section */
 		282E6D094694A4507CAEAD69 /* Pods_VShop_Shopkeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VShop_Shopkeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3432A43323827FCB008198BA /* CallLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallLogCell.swift; sourceTree = "<group>"; };
+		3432A43423827FCB008198BA /* CallLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallLogCell.xib; sourceTree = "<group>"; };
+		3432A43823828972008198BA /* CallLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CallLog.storyboard; sourceTree = "<group>"; };
+		3432A43A238289B7008198BA /* CallLogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallLogVC.swift; sourceTree = "<group>"; };
 		3435A719237D827600DBE491 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		344DF27723828DA8008AF4D6 /* OutgoingcallVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingcallVC.swift; sourceTree = "<group>"; };
 		34690A3B237E824F00487F0E /* OrderDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailCell.xib; sourceTree = "<group>"; };
 		34690A3C237E824F00487F0E /* PriceDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceDetailCell.xib; sourceTree = "<group>"; };
 		34690A3D237E824F00487F0E /* OrderDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailCell.swift; sourceTree = "<group>"; };
@@ -128,6 +155,23 @@
 		34690A40237E824F00487F0E /* OrderHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderHistoryCell.swift; sourceTree = "<group>"; };
 		34690A47237E87AE00487F0E /* OrderHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryVC.swift; sourceTree = "<group>"; };
 		346CA04A237E80E4008286C0 /* OrderHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderHistory.storyboard; sourceTree = "<group>"; };
+		3475E3D0238292BF00CC1FFC /* VideocallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideocallVC.swift; sourceTree = "<group>"; };
+		3475E3D423829D5100CC1FFC /* CallForwardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallForwardVC.swift; sourceTree = "<group>"; };
+		3475E3D623829DA000CC1FFC /* CallForwardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallForwardCell.swift; sourceTree = "<group>"; };
+		3475E3D723829DA000CC1FFC /* CallForwardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallForwardCell.xib; sourceTree = "<group>"; };
+		3475E3DB2382A54800CC1FFC /* RequestCallbackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCallbackCell.swift; sourceTree = "<group>"; };
+		3475E3DC2382A54800CC1FFC /* RequestCallbackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestCallbackCell.xib; sourceTree = "<group>"; };
+		3475E3E02382A78D00CC1FFC /* RequestCallbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCallbackVC.swift; sourceTree = "<group>"; };
+		3475E3E22382A83200CC1FFC /* RequestCallback.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RequestCallback.storyboard; sourceTree = "<group>"; };
+		3475E3E52382AE9900CC1FFC /* RatingsAndReview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RatingsAndReview.storyboard; sourceTree = "<group>"; };
+		3475E3E72382AF5300CC1FFC /* RatingReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingReviewsVC.swift; sourceTree = "<group>"; };
+		3475E3EA2382B00000CC1FFC /* RatingReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingReviewCell.swift; sourceTree = "<group>"; };
+		3475E3EB2382B00000CC1FFC /* RatingReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingReviewCell.xib; sourceTree = "<group>"; };
+		3475E3F02382C8CC00CC1FFC /* AdvertiseVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiseVideoCell.swift; sourceTree = "<group>"; };
+		3475E3F12382C8CC00CC1FFC /* AdvertiseVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertiseVideoCell.xib; sourceTree = "<group>"; };
+		3475E3F42382CB6700CC1FFC /* AdvertiseVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdvertiseVideo.storyboard; sourceTree = "<group>"; };
+		3475E3F62382CBE800CC1FFC /* AdvertiseVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiseVideoVC.swift; sourceTree = "<group>"; };
+		3475E3F82382D29500CC1FFC /* AddVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVideoVC.swift; sourceTree = "<group>"; };
 		3492645E237D8C66002178EA /* PermissionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionVC.swift; sourceTree = "<group>"; };
 		34926460237D8C95002178EA /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
 		34926461237D8C95002178EA /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
@@ -243,6 +287,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3432A43223827F5C008198BA /* Call Log */ = {
+			isa = PBXGroup;
+			children = (
+				3432A43323827FCB008198BA /* CallLogCell.swift */,
+				3432A43423827FCB008198BA /* CallLogCell.xib */,
+				3475E3D623829DA000CC1FFC /* CallForwardCell.swift */,
+				3475E3D723829DA000CC1FFC /* CallForwardCell.xib */,
+			);
+			path = "Call Log";
+			sourceTree = "<group>";
+		};
+		3432A4372382895A008198BA /* Call Log */ = {
+			isa = PBXGroup;
+			children = (
+				3432A43A238289B7008198BA /* CallLogVC.swift */,
+				344DF27723828DA8008AF4D6 /* OutgoingcallVC.swift */,
+				3475E3D0238292BF00CC1FFC /* VideocallVC.swift */,
+				3475E3D423829D5100CC1FFC /* CallForwardVC.swift */,
+			);
+			path = "Call Log";
+			sourceTree = "<group>";
+		};
 		34690A35237E824600487F0E /* Order History */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +331,58 @@
 				34BBB70A237E9418008BACFE /* PaymentModeCell.xib */,
 			);
 			path = "Order History";
+			sourceTree = "<group>";
+		};
+		3475E3DA2382A52400CC1FFC /* Request Callback */ = {
+			isa = PBXGroup;
+			children = (
+				3475E3DB2382A54800CC1FFC /* RequestCallbackCell.swift */,
+				3475E3DC2382A54800CC1FFC /* RequestCallbackCell.xib */,
+			);
+			path = "Request Callback";
+			sourceTree = "<group>";
+		};
+		3475E3DF2382A76E00CC1FFC /* Request callback */ = {
+			isa = PBXGroup;
+			children = (
+				3475E3E02382A78D00CC1FFC /* RequestCallbackVC.swift */,
+			);
+			path = "Request callback";
+			sourceTree = "<group>";
+		};
+		3475E3E42382AE7300CC1FFC /* RatingAndReviews */ = {
+			isa = PBXGroup;
+			children = (
+				3475E3E72382AF5300CC1FFC /* RatingReviewsVC.swift */,
+			);
+			path = RatingAndReviews;
+			sourceTree = "<group>";
+		};
+		3475E3E92382AFD400CC1FFC /* Rating Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				3475E3EA2382B00000CC1FFC /* RatingReviewCell.swift */,
+				3475E3EB2382B00000CC1FFC /* RatingReviewCell.xib */,
+			);
+			path = "Rating Reviews";
+			sourceTree = "<group>";
+		};
+		3475E3EE2382C89000CC1FFC /* Advertise Video */ = {
+			isa = PBXGroup;
+			children = (
+				3475E3F62382CBE800CC1FFC /* AdvertiseVideoVC.swift */,
+				3475E3F82382D29500CC1FFC /* AddVideoVC.swift */,
+			);
+			path = "Advertise Video";
+			sourceTree = "<group>";
+		};
+		3475E3EF2382C8AE00CC1FFC /* Advertise Video */ = {
+			isa = PBXGroup;
+			children = (
+				3475E3F02382C8CC00CC1FFC /* AdvertiseVideoCell.swift */,
+				3475E3F12382C8CC00CC1FFC /* AdvertiseVideoCell.xib */,
+			);
+			path = "Advertise Video";
 			sourceTree = "<group>";
 		};
 		34BBB70E237EBBBC008BACFE /* Profile */ = {
@@ -316,10 +434,10 @@
 				34BBB72D237EBD97008BACFE /* StoreRegistrationViewController.swift */,
 				34BBB72E237EBD97008BACFE /* SelectCategoryViewController.swift */,
 				34BBB72F237EBD97008BACFE /* PanCardDetailsViewController.swift */,
-				34BBB731237EBD97008BACFE /* StoreImageViewController.swift */,
-				34BBB732237EBD97008BACFE /* OtherDocumentDetailsViewController.swift */,
 				34BBB733237EBD97008BACFE /* AadharCardDetailsViewController.swift */,
 				34BBB734237EBD97008BACFE /* GSTCretificatesDetailsViewController.swift */,
+				34BBB732237EBD97008BACFE /* OtherDocumentDetailsViewController.swift */,
+				34BBB731237EBD97008BACFE /* StoreImageViewController.swift */,
 			);
 			path = "Add New Store";
 			sourceTree = "<group>";
@@ -404,13 +522,17 @@
 		34FF17CC237D56AB004C83BC /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				34FF17B4237D5665004C83BC /* LaunchScreen.storyboard */,
 				34FF17CD237D5724004C83BC /* Login.storyboard */,
 				34FF17AF237D5664004C83BC /* Main.storyboard */,
 				346CA04A237E80E4008286C0 /* OrderHistory.storyboard */,
+				3432A43823828972008198BA /* CallLog.storyboard */,
+				3475E3E22382A83200CC1FFC /* RequestCallback.storyboard */,
 				34FEAB2D237E6B8500C0DEE3 /* Invite.storyboard */,
+				3475E3E52382AE9900CC1FFC /* RatingsAndReview.storyboard */,
 				34BBB73D237EBDCE008BACFE /* AddNewStore.storyboard */,
-				34FF17B4237D5665004C83BC /* LaunchScreen.storyboard */,
 				34BBB752237EC2AB008BACFE /* Profile.storyboard */,
+				3475E3F42382CB6700CC1FFC /* AdvertiseVideo.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -490,10 +612,14 @@
 		34FF181A237D5DC1004C83BC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				34BBB72C237EBD97008BACFE /* Add New Store */,
 				34FF181E237D5E4C004C83BC /* Sales Executive */,
 				34690A35237E824600487F0E /* Order History */,
+				3432A4372382895A008198BA /* Call Log */,
+				3475E3DF2382A76E00CC1FFC /* Request callback */,
 				34FEAB2A237E6B2A00C0DEE3 /* Invite */,
+				3475E3E42382AE7300CC1FFC /* RatingAndReviews */,
+				3475E3EE2382C89000CC1FFC /* Advertise Video */,
+				34BBB72C237EBD97008BACFE /* Add New Store */,
 				34BBB70E237EBBBC008BACFE /* Profile */,
 				34FF181B237D5DD0004C83BC /* SideMenu */,
 			);
@@ -531,10 +657,14 @@
 		34FF1822237D5FBA004C83BC /* TableView Cell */ = {
 			isa = PBXGroup;
 			children = (
+				34FF1829237D6CA3004C83BC /* Sales Executive */,
+				34690A3A237E824F00487F0E /* Order History */,
+				3432A43223827F5C008198BA /* Call Log */,
+				3475E3DA2382A52400CC1FFC /* Request Callback */,
+				3475E3E92382AFD400CC1FFC /* Rating Reviews */,
+				3475E3EF2382C8AE00CC1FFC /* Advertise Video */,
 				34BBB73F237EBE6E008BACFE /* AddStoreDetailsCell */,
 				34BBB717237EBD64008BACFE /* ProfileCell */,
-				34690A3A237E824F00487F0E /* Order History */,
-				34FF1829237D6CA3004C83BC /* Sales Executive */,
 				34FF1824237D5FF8004C83BC /* MenuCell */,
 			);
 			path = "TableView Cell";
@@ -674,10 +804,13 @@
 				34926463237D8C95002178EA /* PermissionCell.xib in Resources */,
 				34FF182D237D6CCA004C83BC /* SalesExecutiveCell.xib in Resources */,
 				34BBB753237EC2AB008BACFE /* Profile.storyboard in Resources */,
+				3432A43623827FCB008198BA /* CallLogCell.xib in Resources */,
 				34FF1815237D5D78004C83BC /* Roboto-Italic.ttf in Resources */,
+				3432A43923828972008198BA /* CallLog.storyboard in Resources */,
 				34BBB72B237EBD64008BACFE /* ProfileDetailsTableViewCell.xib in Resources */,
 				34FF1817237D5D78004C83BC /* Roboto-Bold.ttf in Resources */,
 				34BBB723237EBD64008BACFE /* DetailsTableViewCell.xib in Resources */,
+				3475E3ED2382B00000CC1FFC /* RatingReviewCell.xib in Resources */,
 				34FF17CE237D5724004C83BC /* Login.storyboard in Resources */,
 				34BBB70C237E9418008BACFE /* PaymentModeCell.xib in Resources */,
 				34FF180F237D5D78004C83BC /* RobotoCondensed-BoldItalic.ttf in Resources */,
@@ -689,12 +822,15 @@
 				34FF1810237D5D78004C83BC /* RobotoCondensed-LightItalic.ttf in Resources */,
 				34690A41237E824F00487F0E /* OrderDetailCell.xib in Resources */,
 				34FEAB2E237E6B8500C0DEE3 /* Invite.storyboard in Resources */,
+				3475E3E32382A83200CC1FFC /* RequestCallback.storyboard in Resources */,
 				34BBB73E237EBDCE008BACFE /* AddNewStore.storyboard in Resources */,
 				34FF1809237D5D78004C83BC /* Roboto-Light.ttf in Resources */,
 				34BBB724237EBD64008BACFE /* StoresListTableViewCell.xib in Resources */,
+				3475E3DE2382A54800CC1FFC /* RequestCallbackCell.xib in Resources */,
 				34BBB716237EBCE0008BACFE /* Documents.xib in Resources */,
 				34FF1827237D5FF8004C83BC /* MenuTableViewCell.xib in Resources */,
 				34FF1816237D5D78004C83BC /* Roboto-BlackItalic.ttf in Resources */,
+				3475E3F32382C8CC00CC1FFC /* AdvertiseVideoCell.xib in Resources */,
 				34FF180E237D5D78004C83BC /* RobotoCondensed-Italic.ttf in Resources */,
 				34FF17B6237D5665004C83BC /* LaunchScreen.storyboard in Resources */,
 				346CA04B237E80E4008286C0 /* OrderHistory.storyboard in Resources */,
@@ -704,12 +840,15 @@
 				34BBB749237EBE6E008BACFE /* DisplayTimeTableViewCell.xib in Resources */,
 				34FF1814237D5D78004C83BC /* Roboto-LightItalic.ttf in Resources */,
 				34FF180D237D5D78004C83BC /* Roboto-MediumItalic.ttf in Resources */,
+				3475E3E62382AE9900CC1FFC /* RatingsAndReview.storyboard in Resources */,
 				34FF1811237D5D78004C83BC /* Roboto-ThinItalic.ttf in Resources */,
+				3475E3D923829DA000CC1FFC /* CallForwardCell.xib in Resources */,
 				34BBB726237EBD64008BACFE /* ProfileImageTableViewCell.xib in Resources */,
 				34FF180C237D5D78004C83BC /* Roboto-Regular.ttf in Resources */,
 				34BBB728237EBD64008BACFE /* HashTagTableViewCell.xib in Resources */,
 				34690A42237E824F00487F0E /* PriceDetailCell.xib in Resources */,
 				34FF17B3237D5665004C83BC /* Assets.xcassets in Resources */,
+				3475E3F52382CB6700CC1FFC /* AdvertiseVideo.storyboard in Resources */,
 				34FF17B1237D5664004C83BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,6 +909,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344DF27823828DA8008AF4D6 /* OutgoingcallVC.swift in Sources */,
+				3475E3D1238292BF00CC1FFC /* VideocallVC.swift in Sources */,
+				3432A43B238289B7008198BA /* CallLogVC.swift in Sources */,
 				34BBB727237EBD64008BACFE /* ProfileDetailsTableViewCell.swift in Sources */,
 				34FF1820237D5E79004C83BC /* SalesExecutiveVC.swift in Sources */,
 				34BBB725237EBD64008BACFE /* DetailsTableViewCell.swift in Sources */,
@@ -778,11 +920,15 @@
 				34FF181D237D5DD0004C83BC /* SideBar.swift in Sources */,
 				34BBB729237EBD64008BACFE /* ProfileImageTableViewCell.swift in Sources */,
 				34FF1828237D5FF8004C83BC /* MenuTableViewCell.swift in Sources */,
+				3475E3E82382AF5300CC1FFC /* RatingReviewsVC.swift in Sources */,
+				3475E3F92382D29500CC1FFC /* AddVideoVC.swift in Sources */,
 				34FF17D4237D5865004C83BC /* RegisterVC.swift in Sources */,
 				34690A43237E824F00487F0E /* OrderDetailCell.swift in Sources */,
 				34BBB735237EBD97008BACFE /* StoreRegistrationViewController.swift in Sources */,
 				34FF17F4237D5A8C004C83BC /* Constants.swift in Sources */,
 				34FF17AA237D5664004C83BC /* AppDelegate.swift in Sources */,
+				3475E3F22382C8CC00CC1FFC /* AdvertiseVideoCell.swift in Sources */,
+				3475E3EC2382B00000CC1FFC /* RatingReviewCell.swift in Sources */,
 				34BBB73B237EBD97008BACFE /* AadharCardDetailsViewController.swift in Sources */,
 				34FF17E9237D5A23004C83BC /* ComplitionHandlerHelper.swift in Sources */,
 				34FF17E6237D5A23004C83BC /* CameraController.swift in Sources */,
@@ -813,9 +959,15 @@
 				34BBB72A237EBD64008BACFE /* StoresListTableViewCell.swift in Sources */,
 				34690A48237E87AE00487F0E /* OrderHistoryVC.swift in Sources */,
 				34690A44237E824F00487F0E /* PriceDetailCell.swift in Sources */,
+				3475E3E12382A78D00CC1FFC /* RequestCallbackVC.swift in Sources */,
 				34BBB738237EBD97008BACFE /* AddNewStoreViewController.swift in Sources */,
+				3475E3D823829DA000CC1FFC /* CallForwardCell.swift in Sources */,
 				34BBB73A237EBD97008BACFE /* OtherDocumentDetailsViewController.swift in Sources */,
 				34FF17E5237D5A23004C83BC /* Constant.swift in Sources */,
+				3475E3DD2382A54800CC1FFC /* RequestCallbackCell.swift in Sources */,
+				3432A43523827FCB008198BA /* CallLogCell.swift in Sources */,
+				3475E3D523829D5100CC1FFC /* CallForwardVC.swift in Sources */,
+				3475E3F72382CBE800CC1FFC /* AdvertiseVideoVC.swift in Sources */,
 				34FF17E7237D5A23004C83BC /* ColorConstant.swift in Sources */,
 				34BBB710237EBBD9008BACFE /* ProfileVC.swift in Sources */,
 				3435A71A237D827600DBE491 /* EditProfileVC.swift in Sources */,

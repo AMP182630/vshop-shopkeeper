@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Request CallbackVC-->
+        <scene sceneID="30j-Gq-Ebp">
+            <objects>
+                <viewController id="5iV-de-0kx" customClass="RequestCallbackVC" customModule="VShop_Shopkeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a5b-3w-cCp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oiE-1D-kY2">
+                                <rect key="frame" x="10" y="10" width="300" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5iV-de-0kx" id="wb4-Dd-O3d"/>
+                                    <outlet property="delegate" destination="5iV-de-0kx" id="feO-0f-foe"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="khm-Vw-Jko" firstAttribute="bottom" secondItem="oiE-1D-kY2" secondAttribute="bottom" constant="10" id="4zo-0z-0WH"/>
+                            <constraint firstItem="khm-Vw-Jko" firstAttribute="trailing" secondItem="oiE-1D-kY2" secondAttribute="trailing" constant="10" id="6Rr-nh-To1"/>
+                            <constraint firstItem="oiE-1D-kY2" firstAttribute="leading" secondItem="khm-Vw-Jko" secondAttribute="leading" constant="10" id="FFJ-SJ-W0H"/>
+                            <constraint firstItem="oiE-1D-kY2" firstAttribute="top" secondItem="khm-Vw-Jko" secondAttribute="top" constant="10" id="KHg-dp-gCa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="khm-Vw-Jko"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ppa-GU-AYV">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="GMm-41-DF6">
+                            <connections>
+                                <action selector="btnMenu:" destination="5iV-de-0kx" id="McQ-cd-8qp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="vec-33-Cqp">
+                            <connections>
+                                <action selector="btnNotification:" destination="5iV-de-0kx" id="1QE-D4-oJ8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tblView" destination="oiE-1D-kY2" id="kql-C8-coJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z2p-pJ-7kk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1125" y="164.78873239436621"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ogs-Vv-oEw">
+            <objects>
+                <navigationController storyboardIdentifier="RequestCallbackVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c36-1O-yeE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="d3R-Cg-wNR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5iV-de-0kx" kind="relationship" relationship="rootViewController" id="NvT-SG-U9F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyf-eT-ZEi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="364" y="165"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu" width="24" height="24"/>
+        <image name="notification" width="26" height="23"/>
+    </resources>
+</document>

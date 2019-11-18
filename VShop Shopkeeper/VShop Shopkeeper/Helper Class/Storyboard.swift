@@ -15,7 +15,10 @@ enum Storyboard: String {
     case addNewStore = "AddNewStore"
     case profile = "Profile"
     case invite = "Invite"
-    
+    case callLog = "CallLog"
+    case requestcallBack = "RequestCallback"
+    case ratingReviews = "RatingsAndReview"
+    case advertisevideo = "AdvertiseVideo"
     
     func instantiate<T: UIViewController>(viewController type: T.Type) -> T? {
         let identifier = String(describing: type)

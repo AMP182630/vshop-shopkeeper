@@ -38,7 +38,8 @@ class AadharCardDetailsViewController: UIViewController,PassImgDelegate {
         aadharView.documentNumberLabel.text = "Aadhar Number"
         self.document = aadharView
         aadharCardDetailsView.addSubview(aadharView)
-        
+        aadharView.frontButton.addTarget(self, action: #selector(clickFrontImg(sender:)), for: .touchUpInside)
+        aadharView.backButton.addTarget(self, action: #selector(clickBackImg(sender:)), for: .touchUpInside)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationController?.view.tintColor = UIColor.white
         self.navigationItem.title = "Aadhar Card Details"

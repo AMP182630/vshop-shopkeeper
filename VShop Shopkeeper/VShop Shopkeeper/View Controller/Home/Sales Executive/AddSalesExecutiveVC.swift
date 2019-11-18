@@ -13,7 +13,8 @@ class AddSalesExecutiveVC: UIViewController,UITextFieldDelegate,PassImgDelegate 
     //MARK:- Outlets -
     
     @IBOutlet weak var imgProfile: UIImageView!
-    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtfirstName: UITextField!
+    @IBOutlet weak var txtlastName: UITextField!
     @IBOutlet weak var txtcontactNum: UITextField!
     @IBOutlet weak var txtpassWord: UITextField!
     
@@ -48,8 +49,10 @@ class AddSalesExecutiveVC: UIViewController,UITextFieldDelegate,PassImgDelegate 
         imgPickerObj.actionSheet()
     }
     @IBAction func btncreateUser(_ sender: Any) {
-        if txtName.text?.count == 0{
-            Utility.showAlert(message: "Please enter name", controller: self) { (true) in}
+        if txtfirstName.text?.count == 0{
+            Utility.showAlert(message: "Please enter first name", controller: self) { (true) in}
+        }else if txtlastName.text?.count == 0{
+            Utility.showAlert(message: "Please enter last name", controller: self) { (true) in}
         }else if txtcontactNum.text?.count == 0{
             Utility.showAlert(message: "Please enter contact number", controller: self) { (true) in}
         }

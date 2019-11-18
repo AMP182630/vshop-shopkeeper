@@ -14,9 +14,9 @@ class InviteVC: UIViewController,UITextFieldDelegate{
 
     //MARK:- Outlets -
     
-    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtfirstName: UITextField!
     @IBOutlet weak var txtcontactNum: UITextField!
-    @IBOutlet weak var txtpassWord: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var btnsendInvitation: UIButton!
     
     //MARK:- View Lifecycle -
@@ -47,15 +47,15 @@ class InviteVC: UIViewController,UITextFieldDelegate{
     @IBAction func btnNotification(_ sender: Any) {
     }
     @IBAction func btnsendInvitation(_ sender: Any) {
-        if txtName.text?.count == 0{
-            Utility.showAlert(message: "Please enter name", controller: self) { (true) in}
+        if txtfirstName.text?.count == 0{
+            Utility.showAlert(message: "Please enter first name", controller: self) { (true) in}
         }else if txtcontactNum.text?.count == 0{
             Utility.showAlert(message: "Please enter contact number", controller: self) { (true) in}
         }
         else if txtcontactNum.text!.count < 10{
             Utility.showAlert(message: "Please enter valid contact number", controller: self) { (true) in}
-        }else if txtpassWord.text?.count == 0{
-            Utility.showAlert(message: "Please enter password", controller: self) { (true) in}
+        }else if txtEmail.text?.count == 0{
+            Utility.showAlert(message: "Please enter email address", controller: self) { (true) in}
         }
         else{
 //            self.navigationController?.popViewController(animated: true)
