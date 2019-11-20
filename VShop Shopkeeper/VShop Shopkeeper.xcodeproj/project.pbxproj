@@ -287,6 +287,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34111AF62384F2300073A397 /* Shopkeeper */ = {
+			isa = PBXGroup;
+			children = (
+				34FF181A237D5DC1004C83BC /* Home */,
+			);
+			path = Shopkeeper;
+			sourceTree = "<group>";
+		};
+		34111AF72384F2580073A397 /* Sales Executive */ = {
+			isa = PBXGroup;
+			children = (
+				34111AF82384F2760073A397 /* Home */,
+			);
+			path = "Sales Executive";
+			sourceTree = "<group>";
+		};
+		34111AF82384F2760073A397 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		34111AF92384F2950073A397 /* Shopkeeper */ = {
+			isa = PBXGroup;
+			children = (
+				34FF17AF237D5664004C83BC /* Main.storyboard */,
+				346CA04A237E80E4008286C0 /* OrderHistory.storyboard */,
+				3432A43823828972008198BA /* CallLog.storyboard */,
+				3475E3E22382A83200CC1FFC /* RequestCallback.storyboard */,
+				34FEAB2D237E6B8500C0DEE3 /* Invite.storyboard */,
+				3475E3E52382AE9900CC1FFC /* RatingsAndReview.storyboard */,
+				34BBB73D237EBDCE008BACFE /* AddNewStore.storyboard */,
+				34BBB752237EC2AB008BACFE /* Profile.storyboard */,
+				3475E3F42382CB6700CC1FFC /* AdvertiseVideo.storyboard */,
+			);
+			path = Shopkeeper;
+			sourceTree = "<group>";
+		};
+		34111AFA2384F2B70073A397 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				34FF17CD237D5724004C83BC /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		34111AFB2384F2C10073A397 /* Launch Screen */ = {
+			isa = PBXGroup;
+			children = (
+				34FF17B4237D5665004C83BC /* LaunchScreen.storyboard */,
+			);
+			path = "Launch Screen";
+			sourceTree = "<group>";
+		};
+		34111AFC2384FFB80073A397 /* Sales Executive */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Sales Executive";
+			sourceTree = "<group>";
+		};
 		3432A43223827F5C008198BA /* Call Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,17 +584,10 @@
 		34FF17CC237D56AB004C83BC /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				34FF17B4237D5665004C83BC /* LaunchScreen.storyboard */,
-				34FF17CD237D5724004C83BC /* Login.storyboard */,
-				34FF17AF237D5664004C83BC /* Main.storyboard */,
-				346CA04A237E80E4008286C0 /* OrderHistory.storyboard */,
-				3432A43823828972008198BA /* CallLog.storyboard */,
-				3475E3E22382A83200CC1FFC /* RequestCallback.storyboard */,
-				34FEAB2D237E6B8500C0DEE3 /* Invite.storyboard */,
-				3475E3E52382AE9900CC1FFC /* RatingsAndReview.storyboard */,
-				34BBB73D237EBDCE008BACFE /* AddNewStore.storyboard */,
-				34BBB752237EC2AB008BACFE /* Profile.storyboard */,
-				3475E3F42382CB6700CC1FFC /* AdvertiseVideo.storyboard */,
+				34111AFB2384F2C10073A397 /* Launch Screen */,
+				34111AFA2384F2B70073A397 /* Login */,
+				34111AF92384F2950073A397 /* Shopkeeper */,
+				34111AFC2384FFB80073A397 /* Sales Executive */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -540,8 +595,9 @@
 		34FF17CF237D5828004C83BC /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				34FF181A237D5DC1004C83BC /* Home */,
 				34FF17D0237D5865004C83BC /* Login */,
+				34111AF62384F2300073A397 /* Shopkeeper */,
+				34111AF72384F2580073A397 /* Sales Executive */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";

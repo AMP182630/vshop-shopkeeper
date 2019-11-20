@@ -77,8 +77,4 @@ extension RequestCallbackVC : UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCallbackCell") as! RequestCallbackCell
         return populateTableViewRequestCallbackCell(cell: cell, indexPath: indexPath)
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nav = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailVC") as! OrderDetailVC
-        self.navigationController?.pushViewController(nav, animated: true)
-    }
 }

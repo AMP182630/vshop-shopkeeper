@@ -244,7 +244,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjX-iM-mrz">
-                                                <rect key="frame" x="180" y="321" width="100" height="120"/>
+                                                <rect key="frame" x="172" y="321" width="100" height="120"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="rul-8n-hWe">
                                                         <rect key="frame" x="3" y="3" width="94" height="114"/>
@@ -307,7 +307,7 @@
                                             <constraint firstAttribute="trailing" secondItem="xCf-wV-woS" secondAttribute="trailing" constant="20" id="JvO-Cs-wjE"/>
                                             <constraint firstItem="fdo-sz-0hR" firstAttribute="centerX" secondItem="Ckz-sV-V3s" secondAttribute="centerX" id="K8x-3o-ghT"/>
                                             <constraint firstItem="8aT-N4-Fh1" firstAttribute="leading" secondItem="Ckz-sV-V3s" secondAttribute="leading" constant="10" id="ViP-Nx-Afo"/>
-                                            <constraint firstAttribute="trailing" secondItem="PjX-iM-mrz" secondAttribute="trailing" constant="8" id="Yml-5M-xno"/>
+                                            <constraint firstAttribute="trailing" secondItem="PjX-iM-mrz" secondAttribute="trailing" constant="16" id="Yml-5M-xno"/>
                                             <constraint firstItem="cbq-1G-3Sr" firstAttribute="leading" secondItem="Ckz-sV-V3s" secondAttribute="leading" constant="20" id="Z3H-mG-CXp"/>
                                             <constraint firstItem="fdo-sz-0hR" firstAttribute="height" secondItem="Ckz-sV-V3s" secondAttribute="height" multiplier="0.5" id="cn5-Ol-ULp"/>
                                             <constraint firstItem="8aT-N4-Fh1" firstAttribute="top" secondItem="Ckz-sV-V3s" secondAttribute="top" constant="10" id="hsc-e6-s1j"/>
@@ -369,29 +369,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LIl-bK-gPK">
                                 <rect key="frame" x="40" y="99.5" width="240" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="anD-Af-UpS">
-                                    <rect key="frame" x="0.0" y="100" width="240" height="35"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLF-QB-Grz">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="35"/>
-                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
-                                            <state key="normal" title="Close">
-                                                <color key="titleColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="btnClose:" destination="WaI-hb-4gA" eventType="touchUpInside" id="xQ1-Az-HJl"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="rLF-QB-Grz" firstAttribute="leading" secondItem="anD-Af-UpS" secondAttribute="leading" id="LVk-zC-Sfa"/>
-                                        <constraint firstAttribute="bottom" secondItem="rLF-QB-Grz" secondAttribute="bottom" id="Ozn-Fv-HHY"/>
-                                        <constraint firstItem="rLF-QB-Grz" firstAttribute="top" secondItem="anD-Af-UpS" secondAttribute="top" id="RQX-hH-qDc"/>
-                                        <constraint firstAttribute="trailing" secondItem="rLF-QB-Grz" secondAttribute="trailing" id="bz5-yk-ZEm"/>
-                                    </constraints>
-                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rIt-3C-cNu">
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
@@ -402,22 +379,34 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="WaI-hb-4gA" id="8f0-3i-aJN"/>
                                     <outlet property="delegate" destination="WaI-hb-4gA" id="p7J-qQ-mSp"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Npm-I8-Z7N">
+                                <rect key="frame" x="40" y="468.5" width="240" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="D1M-np-w7E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" red="0.074509803920000006" green="0.043137254899999998" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnClose:" destination="WaI-hb-4gA" eventType="touchUpInside" id="kAh-T3-29X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LIl-bK-gPK" firstAttribute="height" secondItem="6Op-UL-Wew" secondAttribute="height" multiplier="0.65" id="14Q-FH-z1p"/>
                             <constraint firstItem="LIl-bK-gPK" firstAttribute="centerX" secondItem="a0d-NU-oWO" secondAttribute="centerX" id="1zJ-Qt-pvg"/>
                             <constraint firstItem="LIl-bK-gPK" firstAttribute="width" secondItem="6Op-UL-Wew" secondAttribute="width" multiplier="0.75" id="4nB-Zr-IgH"/>
+                            <constraint firstItem="Npm-I8-Z7N" firstAttribute="trailing" secondItem="LIl-bK-gPK" secondAttribute="trailing" id="Ku0-6c-ERd"/>
+                            <constraint firstItem="Npm-I8-Z7N" firstAttribute="leading" secondItem="LIl-bK-gPK" secondAttribute="leading" id="aAu-h9-QYL"/>
+                            <constraint firstItem="Npm-I8-Z7N" firstAttribute="top" secondItem="LIl-bK-gPK" secondAttribute="bottom" id="fvt-As-8LU"/>
                             <constraint firstItem="LIl-bK-gPK" firstAttribute="centerY" secondItem="a0d-NU-oWO" secondAttribute="centerY" id="uua-eW-e1x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a0d-NU-oWO"/>
