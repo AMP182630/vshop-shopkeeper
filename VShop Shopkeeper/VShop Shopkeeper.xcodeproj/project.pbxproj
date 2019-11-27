@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0A2A66238E6D4E00A54C2F /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A2A65238E6D4E00A54C2F /* NotificationViewController.swift */; };
+		0C0A2A6A238E6D6900A54C2F /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0A2A68238E6D6900A54C2F /* NotificationTableViewCell.xib */; };
+		0C0A2A6B238E6D6900A54C2F /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A2A69238E6D6900A54C2F /* NotificationTableViewCell.swift */; };
+		0C0A2A6E238E6DB300A54C2F /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C0A2A6D238E6DB300A54C2F /* Notification.storyboard */; };
 		3432A43523827FCB008198BA /* CallLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3432A43323827FCB008198BA /* CallLogCell.swift */; };
 		3432A43623827FCB008198BA /* CallLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3432A43423827FCB008198BA /* CallLogCell.xib */; };
 		3432A43923828972008198BA /* CallLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3432A43823828972008198BA /* CallLog.storyboard */; };
@@ -140,6 +144,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0A2A65238E6D4E00A54C2F /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		0C0A2A68238E6D6900A54C2F /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		0C0A2A69238E6D6900A54C2F /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		0C0A2A6D238E6DB300A54C2F /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		282E6D094694A4507CAEAD69 /* Pods_VShop_Shopkeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VShop_Shopkeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3432A43323827FCB008198BA /* CallLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallLogCell.swift; sourceTree = "<group>"; };
 		3432A43423827FCB008198BA /* CallLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallLogCell.xib; sourceTree = "<group>"; };
@@ -287,6 +295,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0A2A64238E6D4E00A54C2F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				0C0A2A65238E6D4E00A54C2F /* NotificationViewController.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		0C0A2A67238E6D6900A54C2F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				0C0A2A68238E6D6900A54C2F /* NotificationTableViewCell.xib */,
+				0C0A2A69238E6D6900A54C2F /* NotificationTableViewCell.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		0C0A2A6C238E6D7E00A54C2F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				0C0A2A6D238E6DB300A54C2F /* Notification.storyboard */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		34111AF62384F2300073A397 /* Shopkeeper */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,13 +540,13 @@
 		34BBB73F237EBE6E008BACFE /* AddStoreDetailsCell */ = {
 			isa = PBXGroup;
 			children = (
-				34BBB740237EBE6E008BACFE /* SelectOptionsTableViewCell.swift */,
-				34BBB741237EBE6E008BACFE /* DisplayTimeTableViewCell.xib */,
-				34BBB742237EBE6E008BACFE /* SelectOptionsTableViewCell.xib */,
 				34BBB743237EBE6E008BACFE /* DisplayTimeTableViewCell.swift */,
+				34BBB741237EBE6E008BACFE /* DisplayTimeTableViewCell.xib */,
+				34BBB740237EBE6E008BACFE /* SelectOptionsTableViewCell.swift */,
+				34BBB742237EBE6E008BACFE /* SelectOptionsTableViewCell.xib */,
 				34BBB744237EBE6E008BACFE /* CategoryTableViewCell.swift */,
-				34BBB745237EBE6E008BACFE /* AddStoreDetailsTableViewCell.swift */,
 				34BBB746237EBE6E008BACFE /* CategoryTableViewCell.xib */,
+				34BBB745237EBE6E008BACFE /* AddStoreDetailsTableViewCell.swift */,
 				34BBB747237EBE6E008BACFE /* AddStoreDetailsTableViewCell.xib */,
 			);
 			path = AddStoreDetailsCell;
@@ -588,6 +621,7 @@
 				34111AFA2384F2B70073A397 /* Login */,
 				34111AF92384F2950073A397 /* Shopkeeper */,
 				34111AFC2384FFB80073A397 /* Sales Executive */,
+				0C0A2A6C238E6D7E00A54C2F /* Notification */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -598,6 +632,7 @@
 				34FF17D0237D5865004C83BC /* Login */,
 				34111AF62384F2300073A397 /* Shopkeeper */,
 				34111AF72384F2580073A397 /* Sales Executive */,
+				0C0A2A64238E6D4E00A54C2F /* Notification */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -721,6 +756,7 @@
 				3475E3EF2382C8AE00CC1FFC /* Advertise Video */,
 				34BBB73F237EBE6E008BACFE /* AddStoreDetailsCell */,
 				34BBB717237EBD64008BACFE /* ProfileCell */,
+				0C0A2A67238E6D6900A54C2F /* Notification */,
 				34FF1824237D5FF8004C83BC /* MenuCell */,
 			);
 			path = "TableView Cell";
@@ -858,6 +894,7 @@
 				34FF1808237D5D78004C83BC /* Roboto-Medium.ttf in Resources */,
 				34BBB74E237EBE6E008BACFE /* CategoryTableViewCell.xib in Resources */,
 				34926463237D8C95002178EA /* PermissionCell.xib in Resources */,
+				0C0A2A6A238E6D6900A54C2F /* NotificationTableViewCell.xib in Resources */,
 				34FF182D237D6CCA004C83BC /* SalesExecutiveCell.xib in Resources */,
 				34BBB753237EC2AB008BACFE /* Profile.storyboard in Resources */,
 				3432A43623827FCB008198BA /* CallLogCell.xib in Resources */,
@@ -900,6 +937,7 @@
 				34FF1811237D5D78004C83BC /* Roboto-ThinItalic.ttf in Resources */,
 				3475E3D923829DA000CC1FFC /* CallForwardCell.xib in Resources */,
 				34BBB726237EBD64008BACFE /* ProfileImageTableViewCell.xib in Resources */,
+				0C0A2A6E238E6DB300A54C2F /* Notification.storyboard in Resources */,
 				34FF180C237D5D78004C83BC /* Roboto-Regular.ttf in Resources */,
 				34BBB728237EBD64008BACFE /* HashTagTableViewCell.xib in Resources */,
 				34690A42237E824F00487F0E /* PriceDetailCell.xib in Resources */,
@@ -986,8 +1024,10 @@
 				3475E3F22382C8CC00CC1FFC /* AdvertiseVideoCell.swift in Sources */,
 				3475E3EC2382B00000CC1FFC /* RatingReviewCell.swift in Sources */,
 				34BBB73B237EBD97008BACFE /* AadharCardDetailsViewController.swift in Sources */,
+				0C0A2A66238E6D4E00A54C2F /* NotificationViewController.swift in Sources */,
 				34FF17E9237D5A23004C83BC /* ComplitionHandlerHelper.swift in Sources */,
 				34FF17E6237D5A23004C83BC /* CameraController.swift in Sources */,
+				0C0A2A6B238E6D6900A54C2F /* NotificationTableViewCell.swift in Sources */,
 				34BBB748237EBE6E008BACFE /* SelectOptionsTableViewCell.swift in Sources */,
 				34FF17EB237D5A23004C83BC /* Storyboard.swift in Sources */,
 				34BBB70B237E9418008BACFE /* PaymentModeCell.swift in Sources */,
@@ -1194,7 +1234,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CF8SCVD6M5;
 				INFOPLIST_FILE = "VShop Shopkeeper/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1214,7 +1254,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CF8SCVD6M5;
 				INFOPLIST_FILE = "VShop Shopkeeper/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -74,6 +74,8 @@ class SalesExecutiveVC: UIViewController {
         self.sideMenuController?.revealMenu()
     }
     @IBAction func btnNotification(_ sender: Any) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
     }
     @IBAction func btnaddExecutive(_ sender: Any) {
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "AddSalesExecutiveVC") as! AddSalesExecutiveVC

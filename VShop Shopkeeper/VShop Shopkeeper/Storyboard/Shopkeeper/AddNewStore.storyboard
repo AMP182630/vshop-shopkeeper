@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8PE-xo-qPn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8PE-xo-qPn">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -144,7 +144,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h5c-f8-frr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AzR-Hd-893"/>
+                    <navigationItem key="navigationItem" id="AzR-Hd-893">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="Ll0-dI-D1j">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnNotification:" destination="HgO-bX-DGU" id="DH7-Mu-sIL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="622"/>
                     <connections>
                         <outlet property="GSTCertificateView" destination="QBr-y1-M73" id="IFD-Hq-iq9"/>
@@ -226,7 +233,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hPc-Yx-tj7"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ua6-zj-l80"/>
+                    <navigationItem key="navigationItem" id="Ua6-zj-l80">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="KI6-gQ-J1H">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnNotification:" destination="MFu-IT-eu8" id="qCM-n5-erN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="622"/>
                     <connections>
                         <outlet property="aadharCardDetailsView" destination="ttN-3B-MlW" id="SWr-dm-efO"/>
@@ -308,7 +322,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1dO-cE-LOw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="m1v-fN-3rn"/>
+                    <navigationItem key="navigationItem" id="m1v-fN-3rn">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="oey-V8-l6y">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnNotification:" destination="oe7-Dj-kB4" id="q4C-jK-Yas"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="622"/>
                     <connections>
                         <outlet property="storeRegistrationDetailsView" destination="ZCg-Pv-NS3" id="TPN-bG-LGs"/>
@@ -388,7 +409,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z3D-NF-WV0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sfS-QM-Saw"/>
+                    <navigationItem key="navigationItem" id="sfS-QM-Saw">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="e0j-e2-VA6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnNotification:" destination="wYi-ej-D4S" id="BRp-bI-FfV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="622"/>
                     <connections>
                         <outlet property="otherDocumentDetailsView" destination="ydS-a7-CoQ" id="Ys4-Hi-E3z"/>
@@ -403,11 +431,11 @@
             <objects>
                 <viewController storyboardIdentifier="StoreImageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="laF-qT-tyz" customClass="StoreImageViewController" customModule="VShop_Shopkeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mvl-Vc-AgR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F8x-xu-Iwv">
-                                <rect key="frame" x="16" y="20" width="288" height="548"/>
+                                <rect key="frame" x="16" y="20" width="288" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fxQ-J5-pSc">
                                     <size key="itemSize" width="124" height="136"/>
@@ -435,23 +463,13 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NM4-rB-R8k">
-                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
-                                                            <connections>
-                                                                <action selector="btnaddImage:" destination="laF-qT-tyz" eventType="touchUpInside" id="GV2-o5-CaR"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="NM4-rB-R8k" firstAttribute="leading" secondItem="sC3-tG-iTH" secondAttribute="leading" id="1Eh-Lc-vxL"/>
-                                                        <constraint firstAttribute="bottom" secondItem="NM4-rB-R8k" secondAttribute="bottom" id="Bh3-Ld-V3T"/>
                                                         <constraint firstItem="bcW-JR-x1w" firstAttribute="leading" secondItem="sC3-tG-iTH" secondAttribute="leading" id="JDz-2E-qXX"/>
                                                         <constraint firstItem="bcW-JR-x1w" firstAttribute="top" secondItem="sC3-tG-iTH" secondAttribute="top" id="Kir-ni-yBs"/>
                                                         <constraint firstAttribute="trailing" secondItem="bcW-JR-x1w" secondAttribute="trailing" id="MMT-XP-CIi"/>
                                                         <constraint firstAttribute="bottom" secondItem="bcW-JR-x1w" secondAttribute="bottom" id="cl8-J2-on1"/>
-                                                        <constraint firstItem="NM4-rB-R8k" firstAttribute="top" secondItem="sC3-tG-iTH" secondAttribute="top" id="dIS-W3-aUs"/>
-                                                        <constraint firstAttribute="trailing" secondItem="NM4-rB-R8k" secondAttribute="trailing" id="fce-AS-gPz"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -475,7 +493,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAc-Q4-Jk3">
-                                <rect key="frame" x="16" y="507" width="288" height="45"/>
+                                <rect key="frame" x="16" y="463" width="288" height="45"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="KTh-BR-7Qx"/>
@@ -493,7 +511,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djK-MW-JEa">
-                                <rect key="frame" x="264" y="451" width="40" height="40"/>
+                                <rect key="frame" x="264" y="407" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7TP-u9-6t1"/>
                                     <constraint firstAttribute="width" constant="40" id="WYW-PV-Tgn"/>
@@ -515,6 +533,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZTX-ls-bXe"/>
                     </view>
+                    <navigationItem key="navigationItem" id="iqw-t9-koB">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="SwL-6r-P0Y">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnNotification:" destination="laF-qT-tyz" id="0OY-yp-fSL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnFinish" destination="ZAc-Q4-Jk3" id="2hy-1l-cJC"/>
                         <outlet property="clsView" destination="F8x-xu-Iwv" id="cDM-NN-Xf2"/>
@@ -522,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cd1-0K-XT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13498" y="415"/>
+            <point key="canvasLocation" x="14493.75" y="414.08450704225351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="APs-3q-fd0">
@@ -706,6 +732,12 @@
                                 <action selector="MenuButton:" destination="uCs-Hq-Y03" id="iK6-sM-1Ym"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="mQX-hd-2O9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnNotification:" destination="uCs-Hq-Y03" id="j8o-hA-KJC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
@@ -739,7 +771,7 @@
         <!--Pan Card Details View Controller-->
         <scene sceneID="PNZ-6S-trM">
             <objects>
-                <viewController storyboardIdentifier="PanCardDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qQg-hc-ihm" customClass="PanCardDetailsViewController" customModule="VShopRomingStaff" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PanCardDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qQg-hc-ihm" customClass="PanCardDetailsViewController" customModule="VShop_Shopkeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9bR-kK-hj9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="578"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -806,7 +838,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xFr-h6-2eu"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rHV-Ru-fk9"/>
+                    <navigationItem key="navigationItem" id="rHV-Ru-fk9">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="5Yb-8R-8Bq">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnNotification:" destination="qQg-hc-ihm" id="0rt-Zz-z4O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="622"/>
                     <connections>
                         <outlet property="panCardDetailsView" destination="2qa-3Q-E2u" id="apg-vz-OJY"/>
@@ -835,10 +874,30 @@
             </objects>
             <point key="canvasLocation" x="5663" y="-485"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="45N-23-tGS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DOZ-gT-tgE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="I6o-13-ltp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="laF-qT-tyz" kind="relationship" relationship="rootViewController" id="mqj-rO-bW9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YEU-iF-J0H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13496.25" y="414.08450704225351"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrowRight" width="12" height="16.5"/>
         <image name="menu" width="24" height="24"/>
+        <image name="notification" width="20" height="20"/>
         <image name="storeAddress" width="16" height="16"/>
     </resources>
 </document>

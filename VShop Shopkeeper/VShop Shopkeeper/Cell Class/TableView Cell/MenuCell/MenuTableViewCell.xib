@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuTableViewCell" rowHeight="53" id="KGk-i7-Jjw" customClass="MenuTableViewCell" customModule="VShopUser" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuTableViewCell" rowHeight="53" id="KGk-i7-Jjw" customClass="MenuTableViewCell" customModule="VShop_Shopkeeper" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7f-lP-w3J">
-                        <rect key="frame" x="16" y="16" width="288" height="21"/>
+                        <rect key="frame" x="24" y="16" width="280" height="21"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                     <constraint firstAttribute="bottom" secondItem="j7f-lP-w3J" secondAttribute="bottom" constant="16" id="7Ro-jh-Zxe"/>
                     <constraint firstAttribute="trailing" secondItem="j7f-lP-w3J" secondAttribute="trailing" constant="16" id="KyO-4d-tM3"/>
                     <constraint firstItem="j7f-lP-w3J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="eUx-3J-Dx2"/>
-                    <constraint firstItem="j7f-lP-w3J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="feT-s3-eMu"/>
+                    <constraint firstItem="j7f-lP-w3J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="feT-s3-eMu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

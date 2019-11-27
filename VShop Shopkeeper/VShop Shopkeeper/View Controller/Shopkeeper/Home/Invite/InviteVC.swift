@@ -45,6 +45,8 @@ class InviteVC: UIViewController,UITextFieldDelegate{
         self.sideMenuController?.revealMenu()
     }
     @IBAction func btnNotification(_ sender: Any) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
     }
     @IBAction func btnsendInvitation(_ sender: Any) {
         if txtfirstName.text?.count == 0{

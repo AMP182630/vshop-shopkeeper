@@ -90,6 +90,8 @@ class ProfileVC: UIViewController,PassImgDelegate{
         self.sideMenuController?.revealMenu()
     }
     @IBAction func btnNotification(_ sender: Any) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
     }
     @objc func addProfileImg(sender: UIButton!) {
         delegate = self

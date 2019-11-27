@@ -92,6 +92,12 @@ class AddNewStoreViewController: UIViewController {
 //        }
     }
     
+    @IBAction func btnNotification(_ sender: UIBarButtonItem) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
+    }
+    
+    
     //MARK:- Functions -
     
     func checkValidation() -> String {

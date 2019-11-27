@@ -46,6 +46,10 @@ class AadharCardDetailsViewController: UIViewController,PassImgDelegate {
     }
     
     //MARK:- Actions -
+    @IBAction func btnNotification(_ sender: UIBarButtonItem) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
+    }
     
     @IBAction func nextButton(_ sender: UIButton) {
         if document.documentNumberTextField.text?.count == 0{

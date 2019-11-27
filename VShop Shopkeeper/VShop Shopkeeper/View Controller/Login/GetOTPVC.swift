@@ -35,6 +35,7 @@ class GetOTPVC: UIViewController {
     
     func setupView(){
         self.navigationController?.isNavigationBarHidden = true
+        self.txtOTP.delegate = self
     }
     
     //MARK:- Action -
@@ -52,5 +53,16 @@ class GetOTPVC: UIViewController {
     }
     @IBAction func btnresendOTP(_ sender: Any){
         
+    }
+}
+
+//MARK:- Textfield Delegate -
+extension GetOTPVC: UITextFieldDelegate{
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtOTP{
+            return range.location < 6
+        }
+        return true
     }
 }

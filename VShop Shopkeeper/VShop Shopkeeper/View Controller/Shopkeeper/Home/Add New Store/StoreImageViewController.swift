@@ -40,6 +40,11 @@ class StoreImageViewController: UIViewController,PassArrayImgDelegate{
     
     //MARK:- ACTION
     
+    @IBAction func btnNotification(_ sender: UIBarButtonItem) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
+    }
+    
     @IBAction func btnFinish(_ sender: Any) {
         self.navigationController!.popToRootViewController(animated: true)
     }
@@ -47,6 +52,13 @@ class StoreImageViewController: UIViewController,PassArrayImgDelegate{
         arrayImgdelegate = self
         imgPickerObj.currentViewController = self
         imgPickerObj.cameFrom = "StoreImageViewController"
+        imgPickerObj.actionSheet()
+    }
+    
+    @objc func addStoreTapped(_ imageView : Any) {
+        arrayImgdelegate = self
+        imgPickerObj.currentViewController = self
+        imgPickerObj.cameFrom = Constants.ViewControllers.StoreImageViewController
         imgPickerObj.actionSheet()
     }
     
@@ -74,7 +86,10 @@ extension StoreImageViewController: UICollectionViewDelegate,UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoreImageCollectionViewCell", for: indexPath) as! StoreImageCollectionViewCell
         if indexPath.row == 0{
-            cell.storeImage.backgroundColor = .black
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.addStoreTapped(_:)))
+            cell.storeImage.isUserInteractionEnabled = true
+            cell.storeImage.addGestureRecognizer(tapGestureRecognizer)
+            cell.storeImage.image = UIImage(named: "addVideo.png")
         }
         else{
            cell.storeImage.image = arrImages[indexPath.row - 1]

@@ -62,6 +62,8 @@ class AdvertiseVideoVC: UIViewController {
         self.sideMenuController?.revealMenu()
     }
     @IBAction func btnNotification(_ sender: Any) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
     }
     @objc func active(sender: UIButton!) {
         

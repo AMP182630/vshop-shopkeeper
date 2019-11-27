@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notification View Controller-->
+        <scene sceneID="1Q2-XL-5g4">
+            <objects>
+                <viewController storyboardIdentifier="NotificationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bFr-U9-QPp" customClass="NotificationViewController" customModule="VShopDeliverBoy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mKR-xO-AEQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Wc-pe-MuT">
+                                <rect key="frame" x="16" y="16" width="288" height="536"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5Wc-pe-MuT" secondAttribute="trailing" constant="16" id="CNX-2b-lEZ"/>
+                            <constraint firstItem="5Wc-pe-MuT" firstAttribute="top" secondItem="mKR-xO-AEQ" secondAttribute="top" constant="16" id="aU3-Km-19K"/>
+                            <constraint firstItem="5Wc-pe-MuT" firstAttribute="leading" secondItem="mKR-xO-AEQ" secondAttribute="leading" constant="16" id="gL4-kO-3j6"/>
+                            <constraint firstAttribute="bottom" secondItem="5Wc-pe-MuT" secondAttribute="bottom" constant="16" id="jyD-rW-tvO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gaM-0r-QsE"/>
+                    </view>
+                    <connections>
+                        <outlet property="notificationTableView" destination="5Wc-pe-MuT" id="rJp-xI-KA2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DeI-dJ-O5G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="151"/>
+        </scene>
+    </scenes>
+</document>

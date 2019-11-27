@@ -61,6 +61,10 @@ class PanCardDetailsViewController: UIViewController,PassImgDelegate {
             self.navigationController?.pushViewController(gstCeriVC, animated: true)
         }
     }
+    @IBAction func btnNotification(_ sender: UIBarButtonItem) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
+    }
     @objc func clickFrontImg(sender: UIButton!) {
         delegate = self
         imgPickerObj.currentViewController = self

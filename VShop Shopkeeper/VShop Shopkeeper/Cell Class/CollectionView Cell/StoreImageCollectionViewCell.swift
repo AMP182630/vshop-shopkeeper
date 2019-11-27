@@ -11,6 +11,5 @@ import UIKit
 class StoreImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var storeImage: UIImageView!
-    @IBOutlet weak var addImageButton: UIButton!
     
 }

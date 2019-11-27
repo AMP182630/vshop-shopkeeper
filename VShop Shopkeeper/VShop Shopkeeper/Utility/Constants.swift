@@ -23,6 +23,13 @@ class Constants: NSObject {
         static let RepairerRegistration = UIStoryboard(name: "RepairerRegistration", bundle: nil)
         static let TeamMember = UIStoryboard(name: "TeamMember", bundle: nil)
     }
+    struct ViewControllers {
+        static let StoreImageViewController = "StoreImageViewController"
+    }
+    
+    struct TableViewCell {
+        static let NotificationTableViewCell = "NotificationTableViewCell"
+    }
     
     struct General{
         static let appDelegate = UIApplication.shared.delegate as! AppDelegate
