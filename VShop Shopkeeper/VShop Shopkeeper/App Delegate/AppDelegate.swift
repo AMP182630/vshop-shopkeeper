@@ -10,6 +10,8 @@ import UIKit
 import IQKeyboardManagerSwift
 import SideMenuSwift
 
+var dictList : UserModel?
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -26,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SideMenuController.preferences.basic.enablePanGesture = true
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().isTranslucent = false
+        
+        if UserDefaults.standard.value(forKey:"otpVerify") as? String ?? "" != "" {
+               let rootViewController = Storyboard.main.instantiate(viewController: SideMenuController.self)
+               let tabbarVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SalesExecutiveVC")
+               let appDelegate = UIApplication.shared.delegate as! AppDelegate
+               appDelegate.window?.rootViewController = rootViewController
+           }
     }
 }
 

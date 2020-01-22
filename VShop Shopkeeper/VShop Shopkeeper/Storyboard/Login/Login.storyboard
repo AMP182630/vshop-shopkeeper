@@ -500,7 +500,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1L5-91-mF5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="pVK-qx-II0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginNavigationVC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="pVK-qx-II0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cTn-70-THB">
                         <autoresizingMask key="autoresizingMask"/>

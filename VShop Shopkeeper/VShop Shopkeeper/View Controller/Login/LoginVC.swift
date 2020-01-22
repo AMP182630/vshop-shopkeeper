@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LoginVC: UIViewController,UITextFieldDelegate {
     
@@ -65,5 +66,41 @@ class LoginVC: UIViewController,UITextFieldDelegate {
             return range.location < 10
         }
         return true
+    }
+}
+
+extension LoginVC {
+    
+    //MARK:- API LOGIN
+    
+    public func apiLogin(){
+        let params = [
+            kPhoneNumber: txtphoneNumber.text ?? "",
+            kIMEI: Constant.udid.deviceUdid,
+            kDeviceType: 1
+            ] as [String : AnyObject]
+        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let data = jsonData[kData].dictionary {
+                    print(data)
+                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "GetOTPVC") as! GetOTPVC
+                    nav.phoneNumber = self.txtphoneNumber.text ?? ""
+                    self.navigationController?.pushViewController(nav, animated: true)
+                    
+                }
+            } else {
+                if let message = jsonData["message"].string {
+                    if message.count > 0{
+                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
     }
 }

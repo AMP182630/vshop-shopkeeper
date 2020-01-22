@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenuSwift
+import SwiftyJSON
 
 class ProfileVC: UIViewController,PassImgDelegate{
     
@@ -64,6 +65,7 @@ class ProfileVC: UIViewController,PassImgDelegate{
     }
     fileprivate func  populateStoreListCell(cell: AddStoreDetailsTableViewCell, indexPath: IndexPath) -> AddStoreDetailsTableViewCell {
         cell.detailLabel.text = storeFieldName[indexPath.row]
+        /* cell.detailTextField.text = dictList?.storeName */
         return cell
     }
     fileprivate func  populateHashTagCell(cell: HashTagTableViewCell, indexPath: IndexPath) -> HashTagTableViewCell {
@@ -218,3 +220,30 @@ extension ProfileVC : UITableViewDelegate,UITableViewDataSource {
     }
 }
 
+extension ProfileVC {
+    //MARK:- GET PROFILE DATA
+       
+       fileprivate func apiGetProfile() {
+           let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
+           RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
+               let jsonData = JSON(response)
+               if jsonData[kSuccess] == true {
+                   if let dict = jsonData[kData].dictionary {
+                       dictList = UserModel.init(dict: dict)
+                      
+                   }
+               } else {
+                   if let messages = jsonData["error"].string {
+                       if messages.count > 0{
+                           Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
+                           })
+                       }
+                   }
+               }
+           })
+           { (error) in
+               Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+               })
+           }
+       }
+}

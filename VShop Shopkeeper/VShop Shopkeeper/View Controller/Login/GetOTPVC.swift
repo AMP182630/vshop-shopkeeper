@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenuSwift
+import SwiftyJSON
 
 class GetOTPVC: UIViewController {
     
@@ -19,6 +20,7 @@ class GetOTPVC: UIViewController {
     
     //MARK:- Variables -
     
+    var phoneNumber = String()
     
     //MARK:- View Lifecycle -
     
@@ -45,6 +47,7 @@ class GetOTPVC: UIViewController {
             Utility.showAlert(message: "Please enter OTP", controller: self) { (true) in}
         }
         else{
+            Constant.General.userdefaults.set("12345", forKey: "otpVerify")
             let rootViewController = Storyboard.main.instantiate(viewController: SideMenuController.self)
             let controller = Storyboard.main.instantiate(viewController:SalesExecutiveVC.self)
             rootViewController?.contentViewController = controller
@@ -64,5 +67,44 @@ extension GetOTPVC: UITextFieldDelegate{
             return range.location < 6
         }
         return true
+    }
+}
+
+extension GetOTPVC {
+    
+    //MARK:- API OTP
+    
+    public func apiOTP(){
+        let params = [
+            kOTPNUmber: txtOTP.text,
+            kIMEI: Constant.udid.deviceUdid,
+            kPhoneNumber: phoneNumber,
+            kDeviceType:Constant.DeviceToken.deviceToken,
+            kDeviceType: 1
+            ] as [String : AnyObject]
+        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let data = jsonData[kData].dictionary {
+                    print(data)
+                    dictList = UserModel.init(dict: data)
+                    let rootViewController = Storyboard.main.instantiate(viewController: SideMenuController.self)
+                    let controller = Storyboard.main.instantiate(viewController: SalesExecutiveVC.self)
+                    rootViewController?.contentViewController = controller
+                    self.navigationController?.pushViewController(rootViewController ?? self, animated: true)
+                }
+            } else {
+                if let message = jsonData["message"].string {
+                    if message.count > 0{
+                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class OrderDetailVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate{
     
@@ -20,6 +21,7 @@ class OrderDetailVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
     let myPickerData = ["Pending","Receive","Reject","Dispatched","Delivered"]
     var orderStatus : OrderDetailCell = OrderDetailCell()
     var selectedIndex = 0
+    public var dictOrderDetails : OrderHistoryListModel?
     
     //MARK:- View Lifecycle -
     
@@ -55,15 +57,25 @@ class OrderDetailVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
     //MARK:- POPULATE TABLE VIEW CELL -
     
     fileprivate func populateTableViewOrderDetailCell(cell : OrderDetailCell, indexPath : IndexPath) -> OrderDetailCell {
+     /*   cell.lblName.text = dictOrderDetails?.customerName
+        cell.lblorderId.text = dictOrderDetails?.customerOrderId
+        cell.lblQuantity.text = dictOrderDetails?.quantity
+        cell.lbldeliveryStatus.text = dictOrderDetails?.status
+        cell.lblPrice.text = dictOrderDetails?.price */
         cell.btnselectPayment.addTarget(self, action: #selector(selectPayment(sender:)), for: .touchUpInside)
         return cell
     }
     fileprivate func populateTableViewPriceDetailCell(cell : PriceDetailCell, indexPath : IndexPath) -> PriceDetailCell {
-        
+     /*   cell.lblproductPrice.text = dictOrderDetails?.price
+        cell.lbldeliveryCharge.text = dictOrderDetails?.deliveryCharge
+        cell.lblGST.text = dictOrderDetails?.GST
+        cell.lblpromotionPrice.text = dictOrderDetails?.AppliedPromotionPrice
+        cell.lbltotalAmount.text = dictOrderDetails?.TotalAmount */
         return cell
     }
     fileprivate func populateTableViewPaymentModeCell(cell : PaymentModeCell, indexPath : IndexPath) -> PaymentModeCell {
-        
+/*        cell.lblcardNum.text = dictOrderDetails?.creditCard
+        cell.lbltransactionID.text = dictOrderDetails?.transactionId */
         return cell
     }
     
@@ -160,6 +172,33 @@ extension OrderDetailVC : UITableViewDataSource,UITableViewDelegate{
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PriceDetailCell") as! PriceDetailCell
             return populateTableViewPriceDetailCell(cell: cell, indexPath: indexPath)
+        }
+    }
+}
+
+extension OrderDetailVC {
+    //MARK:- GET ORDER DETAILS
+    
+    fileprivate func apiGetOrderDetails() {
+        RequestManager.getAPIWithURLString(urlPart:"",successResult: { (response,statuscode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let dict = jsonData[kData].dictionary {
+                    self.dictOrderDetails = OrderHistoryListModel.init(dict: dict)
+                    self.tblView.reloadData()
+                }
+            } else {
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
         }
     }
 }

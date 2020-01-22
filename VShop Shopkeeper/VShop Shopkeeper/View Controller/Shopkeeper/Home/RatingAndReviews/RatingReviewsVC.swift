@@ -8,6 +8,8 @@
 
 import UIKit
 import SideMenuSwift
+import SwiftyJSON
+import FloatRatingView
 
 class RatingReviewsVC: UIViewController {
     
@@ -17,6 +19,11 @@ class RatingReviewsVC: UIViewController {
     
     //MARK:- Variables -
     
+    var refreshControl = UIRefreshControl()
+    var counter = 3
+    public var arrReviewList = [ReviewModel]()
+    public var page = Int()
+    public var totalRecords = Int()
     
     //MARK:- View Lifecycle -
     
@@ -37,6 +44,10 @@ class RatingReviewsVC: UIViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
         SideMenuController.preferences.basic.menuWidth = self.view.frame.width
+        
+        refreshControl.attributedTitle = NSAttributedString(string: Constant.defaultValues.PullToRefresh)
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+        tblView.addSubview(refreshControl)
     }
     
     //MARK:- Register XIB -
@@ -46,13 +57,38 @@ class RatingReviewsVC: UIViewController {
         self.tblView.register(registerRatingReviewCell, forCellReuseIdentifier: "RatingReviewCell")
     }
     
+    //MARK:- Functions -
+       
+       fileprivate func pagination() {
+           counter += 10
+           tblView.reloadData()
+       }
+    
     //MARK:- POPULATE TABLE VIEW CELL -
     
     fileprivate func populateTableViewRatingReviewCell(cell : RatingReviewCell, indexPath : IndexPath) -> RatingReviewCell {
+   /*     cell.lblName.text = arrReviewList[indexPath.row].customerName
+        cell.lblReviews.text = arrReviewList[indexPath.row].comment
+        if let rating = arrReviewList[indexPath.row].rating {
+            if rating != "" {
+                cell.viewRating.rating = Double(Float(rating)!)
+            } else {
+                cell.viewRating.rating = 0
+            }
+        } */
         return cell
     }
     
     //MARK:- Action -
+    
+    //MARK:- REFRESH SERVICES
+    
+    @objc func refresh(sender:AnyObject) {
+        counter += 1
+        self.page = 0
+        tblView.reloadData()
+        refreshControl.endRefreshing()
+    }
     
     @IBAction func btnMenu(_ sender: Any) {
         self.sideMenuController?.revealMenu()
@@ -72,5 +108,57 @@ extension RatingReviewsVC : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RatingReviewCell") as! RatingReviewCell
         return populateTableViewRatingReviewCell(cell: cell, indexPath: indexPath)
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastItem = counter - 1
+        if indexPath.row == lastItem {
+            pagination()
+        }
+    }
+}
+
+extension RatingReviewsVC {
+    
+    //MARK:- API RATING & REVIEW LIST
+    
+    fileprivate func apiReviewList() {
+        let params = [
+            kUserId:UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0,
+            "page":page
+            ] as [String : AnyObject]
+        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let data = jsonData[kData].dictionary {
+                    print(data)
+                    self.totalRecords = data["totalRecords"]?.int ?? 0
+                    if let arrList = data["stores"]?.array {
+                        if arrList.count != 0 {
+                            if self.page == 0 {
+                                self.arrReviewList = arrList.compactMap({(dict) -> ReviewModel in ReviewModel(dict: dict.dictionaryValue)})
+                            } else {
+                                for dict in arrList {
+                                    self.arrReviewList.append(ReviewModel(dict: dict.dictionaryValue))
+                                }
+                            }
+                            self.tblView.reloadData()
+                        }
+                    }
+                    self.refreshControl.endRefreshing()
+                }
+            } else {
+                if let message = jsonData["message"].string {
+                    if message.count > 0{
+                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+                
+            })
+        }
     }
 }

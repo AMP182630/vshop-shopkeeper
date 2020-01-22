@@ -66,9 +66,15 @@ class Constant: NSObject {
         static let deleteWallet = "remove-wallet"
         static let modifyBooking = "edit-booking"
     }
+    struct defaultValues {
+        static let PullToRefresh = "Pull to refresh"
+    }
     struct DeviceToken {
         static var deviceToken = String()
     }
+    struct udid {
+           static var deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+       }
     struct General {
         static let userdefaults:UserDefaults = UserDefaults.standard
     }

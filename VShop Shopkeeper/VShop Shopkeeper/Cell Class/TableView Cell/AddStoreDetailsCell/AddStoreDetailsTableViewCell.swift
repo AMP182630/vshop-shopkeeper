@@ -16,7 +16,6 @@ class AddStoreDetailsTableViewCell: UITableViewCell,UITextFieldDelegate {
     @IBOutlet var detailLabel: UILabel!
     @IBOutlet var detailTextField: UITextField!
     @IBOutlet var storeAddressImage: UIImageView!
-    
     @IBOutlet var storeAddressImageWidthConstant: NSLayoutConstraint!
     @IBOutlet var detailsTextFieldTrailingConstant: NSLayoutConstraint!
     
@@ -34,6 +33,4 @@ class AddStoreDetailsTableViewCell: UITableViewCell,UITextFieldDelegate {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    
 }

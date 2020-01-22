@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class SideBar: UIViewController {
     
@@ -100,7 +101,36 @@ extension SideBar : UITableViewDataSource,UITableViewDelegate {
                 UIStoryboard.init(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") }, with: "ProfileVC")
             sideMenuController?.setContentViewController(with: "ProfileVC")
         }else{
-            
+            //apiLogout()
+            let nav = Constant.Storyboards.Login.instantiateViewController(withIdentifier: "loginNavigationVC")
+            Constant.General.userdefaults.removeObject(forKey: "otpVerify")
+            appDelegate.window?.rootViewController = nav
+        }
+    }
+}
+
+extension SideBar {
+    
+    //MARK:- API LOGOUT
+    
+    fileprivate func apiLogout() {
+        let params = [
+            kUserId:UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0,
+            kDeviceToken: Constant.DeviceToken.deviceToken,
+            kDeviceType: 1
+            ] as [String : AnyObject]
+        RequestManager.postAPIWithHeader(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                let nav = Constant.Storyboards.Login.instantiateViewController(withIdentifier: "loginNavigationVC")
+                Constant.General.userdefaults.removeObject(forKey: "otpVerify")
+                appDelegate.window?.rootViewController = nav
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+                
+            })
         }
     }
 }
