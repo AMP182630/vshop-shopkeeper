@@ -1,15 +1,15 @@
 //
-//  AddVideoVC.swift
+//  SalesAddVideoVC.swift
 //  VShop Shopkeeper
 //
-//  Created by Shubham's Macbook Pro on 18/11/19.
+//  Created by Shubham's Macbook Pro on 20/11/19.
 //  Copyright © 2019 Shubham's Macbook Pro. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
-class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class SalesAddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     //MARK:- Outlets -
     
@@ -54,6 +54,7 @@ class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDe
         topFilepath.constant = 0
         topuploadVideo.constant = 15
         heighttxtFIlepath.constant = 0
+        //        txtvideoLink.text = String(contentsOf: videofilepathURL as URL)
     }
     
     //MARK:- Actions -
@@ -100,13 +101,6 @@ class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDe
         }
         return true
     }
-    //    private func textViewDidEndEditing(_ textView: UITextView) {
-    //        if txtvideoLink.text!.count > 0{
-    //            btnuploadVideo.backgroundColor = UIColor.blue
-    //        }else{
-    //            btnuploadVideo.backgroundColor = UIColor.init(red: 20/255, green: 11/255, blue: 116/255, alpha: 1)
-    //        }
-    //    }
     
     //MARK:- ThumbnailImage from URL -
     
@@ -162,14 +156,14 @@ class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDe
             videofilepathURL = videoURL as NSURL
             let thumbnailImage = getThumbnailImage(forUrl: videoURL)
             showVideoimg = thumbnailImage ?? #imageLiteral(resourceName: "imgPlaceholder")
-            showVideoimg = thumbnailImage ?? #imageLiteral(resourceName: "imgPlaceholder")
             txtvideofilePath.isHidden = false
             lblfilePath.isHidden = false
             lblSaperetor.isHidden = false
             topFilepath.constant = 30
             topuploadVideo.constant = 15
             heighttxtFIlepath.constant = 45
-//            txtvideofilePath.text = try String(contentsOf: videoURL)
+//            txtvideofilePath.text = String(contentsOf: videoURL)
+
         }
         else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")

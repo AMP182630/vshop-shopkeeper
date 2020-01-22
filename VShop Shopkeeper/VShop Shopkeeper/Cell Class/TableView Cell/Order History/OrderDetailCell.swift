@@ -19,6 +19,10 @@ class OrderDetailCell: UITableViewCell {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lbldeliveryStatus: UILabel!
     @IBOutlet weak var btnselectPayment: UIButton!
+    @IBOutlet weak var heightSelectPayment: NSLayoutConstraint!
+    @IBOutlet weak var widthimgProduct: NSLayoutConstraint!
+    @IBOutlet weak var bottomPrice: NSLayoutConstraint!
+    @IBOutlet weak var leadingName: NSLayoutConstraint!
     
     //MARK:- Cell Lifecycle -
     

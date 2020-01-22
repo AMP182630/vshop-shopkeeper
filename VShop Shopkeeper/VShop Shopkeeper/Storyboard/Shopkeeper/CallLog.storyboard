@@ -367,7 +367,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LIl-bK-gPK">
-                                <rect key="frame" x="40" y="99.5" width="240" height="369"/>
+                                <rect key="frame" x="40" y="113.5" width="240" height="341"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rIt-3C-cNu">
@@ -385,7 +385,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Npm-I8-Z7N">
-                                <rect key="frame" x="40" y="468.5" width="240" height="40"/>
+                                <rect key="frame" x="40" y="454.5" width="240" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="D1M-np-w7E"/>
@@ -401,7 +401,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LIl-bK-gPK" firstAttribute="height" secondItem="6Op-UL-Wew" secondAttribute="height" multiplier="0.65" id="14Q-FH-z1p"/>
+                            <constraint firstItem="LIl-bK-gPK" firstAttribute="height" secondItem="6Op-UL-Wew" secondAttribute="height" multiplier="0.6" id="14Q-FH-z1p"/>
                             <constraint firstItem="LIl-bK-gPK" firstAttribute="centerX" secondItem="a0d-NU-oWO" secondAttribute="centerX" id="1zJ-Qt-pvg"/>
                             <constraint firstItem="LIl-bK-gPK" firstAttribute="width" secondItem="6Op-UL-Wew" secondAttribute="width" multiplier="0.75" id="4nB-Zr-IgH"/>
                             <constraint firstItem="Npm-I8-Z7N" firstAttribute="trailing" secondItem="LIl-bK-gPK" secondAttribute="trailing" id="Ku0-6c-ERd"/>

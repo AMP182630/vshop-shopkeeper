@@ -19,10 +19,16 @@ class OutgoingcallVC: UIViewController {
     
     //MARK:- Variables -
     
+    var iscomefrom = Bool()
+    
     //MARK:- View Lifecycle -
     
     override func viewDidLoad(){
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.setUp()
     }
     
@@ -33,10 +39,15 @@ class OutgoingcallVC: UIViewController {
         viewImage.layer.borderColor = UIColor.white.cgColor
         self.navigationController?.isNavigationBarHidden = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            let nav = self.storyboard?.instantiateViewController(withIdentifier: "VideocallVC") as! VideocallVC
-            self.navigationController?.pushViewController(nav, animated: true)
+            if self.iscomefrom == true{
+                if let nav = Storyboard.salesrequestcallBack.instantiate(viewController: VideoCallVC.self){
+                    self.navigationController?.pushViewController(nav, animated: true)
+                }
+            }else{
+                let nav = self.storyboard?.instantiateViewController(withIdentifier: "VideocallVC") as! VideocallVC
+                self.navigationController?.pushViewController(nav, animated: true)
+            }
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-            
         }
     }
     

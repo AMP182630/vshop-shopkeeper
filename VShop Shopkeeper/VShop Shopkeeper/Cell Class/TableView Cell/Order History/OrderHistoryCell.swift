@@ -18,7 +18,8 @@ class OrderHistoryCell: UITableViewCell {
     @IBOutlet weak var lblQuantity: UILabel!
     @IBOutlet weak var lblorderProcess: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
-    
+    @IBOutlet weak var leadingName: NSLayoutConstraint!
+    @IBOutlet weak var widthimgProduct: NSLayoutConstraint!
     //MARK:- Cell Lifecycle -
     
     override func awakeFromNib() {

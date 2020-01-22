@@ -21,6 +21,14 @@ enum Storyboard: String {
     case advertisevideo = "AdvertiseVideo"
     case notification = "Notification"
     
+    //Sales Executive
+    case salescallLog = "SalesCallLog"
+    case salesorderHistory = "SalesOrderHistory"
+    case salesrequestcallBack = "SalesRequestCallback"
+    case salesratingReviews = "SalesRatingsAndReview"
+    case salesadvertisevideo = "SalesAdvertiseVideo"
+    case salesprofile = "SalesProfile"
+    
     func instantiate<T: UIViewController>(viewController type: T.Type) -> T? {
         let identifier = String(describing: type)
         let storyboard = UIStoryboard(name: rawValue, bundle: nil)

@@ -142,6 +142,8 @@
                 <outlet property="lblQuantity" destination="enf-vW-wpw" id="n4l-cz-f4H"/>
                 <outlet property="lblorderId" destination="5QA-Me-fwQ" id="ddY-bZ-SeC"/>
                 <outlet property="lblorderProcess" destination="YeJ-X1-UI0" id="n71-n3-NSv"/>
+                <outlet property="leadingName" destination="KQ6-Hl-vfe" id="9In-0C-Ntu"/>
+                <outlet property="widthimgProduct" destination="lSb-Hw-FNi" id="Vea-JN-KBU"/>
             </connections>
             <point key="canvasLocation" x="155.07246376811597" y="169.41964285714286"/>
         </tableViewCell>

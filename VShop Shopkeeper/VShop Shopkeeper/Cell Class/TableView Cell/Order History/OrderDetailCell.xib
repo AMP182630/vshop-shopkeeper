@@ -156,13 +156,17 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="btnselectPayment" destination="z7N-9b-1Rt" id="xen-vq-Iqi"/>
-                <outlet property="imgProduct" destination="wzJ-N4-biu" id="e77-9H-6np"/>
+                <outlet property="bottomPrice" destination="czb-1b-P7O" id="B2O-zD-hav"/>
+                <outlet property="btnselectPayment" destination="z7N-9b-1Rt" id="OSz-dH-yD7"/>
+                <outlet property="heightSelectPayment" destination="yme-p2-oQ5" id="5c0-zA-sqY"/>
+                <outlet property="imgProduct" destination="wzJ-N4-biu" id="cK9-Mx-j1S"/>
                 <outlet property="lblName" destination="YNP-Rz-KCS" id="g27-SL-FhS"/>
                 <outlet property="lblPrice" destination="Jm8-NY-eeL" id="rXl-8l-SKh"/>
                 <outlet property="lblQuantity" destination="7hg-9E-OuV" id="hne-UD-Akv"/>
                 <outlet property="lbldeliveryStatus" destination="TC3-ch-E8t" id="BMk-ZD-K19"/>
                 <outlet property="lblorderId" destination="8Jl-Vh-uyb" id="yzM-9L-na0"/>
+                <outlet property="leadingName" destination="7ZB-OF-HyP" id="Fqb-oX-fIK"/>
+                <outlet property="widthimgProduct" destination="QMe-T3-yG2" id="NQ2-cK-7O3"/>
             </connections>
             <point key="canvasLocation" x="186.23188405797103" y="182.47767857142856"/>
         </tableViewCell>
