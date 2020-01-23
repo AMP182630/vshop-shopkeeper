@@ -40,7 +40,7 @@ class OutgoingcallVC: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             if self.iscomefrom == true{
-                if let nav = Storyboard.salesrequestcallBack.instantiate(viewController: VideoCallVC.self){
+                if let nav = Storyboard.salesrequestcallBack.instantiate(viewController: VideocallVC.self){
                     self.navigationController?.pushViewController(nav, animated: true)
                 }
             }else{

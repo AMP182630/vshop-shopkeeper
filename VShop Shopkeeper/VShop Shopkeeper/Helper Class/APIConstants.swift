@@ -12,6 +12,7 @@ import UIKit
 //******************************
 //MARK:- Keys
 //******************************
+
 let kDeviceToken = "deviceToken"
 let kDeviceType = "deviceType"
 let kIMEI = "IMEI"
@@ -50,4 +51,8 @@ let kSubServicesItem = "subServicesItem"
 let kServiceProviderId = "serviceProviderId"
 let kRating = "rating"
 let kReview = "review"
-
+let ksalesName = "salesName"
+let ksalesImage = "salesImage"
+let ksalesNumber = "salesNumber"
+let klanguauge = "languauge"
+let ksalesId = "salesId"

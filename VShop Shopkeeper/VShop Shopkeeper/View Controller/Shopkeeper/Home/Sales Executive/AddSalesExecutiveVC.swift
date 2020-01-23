@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class AddSalesExecutiveVC: UIViewController,UITextFieldDelegate,PassImgDelegate {
     
@@ -21,6 +22,7 @@ class AddSalesExecutiveVC: UIViewController,UITextFieldDelegate,PassImgDelegate 
     //MARK:- Variables -
     
     var imgPickerObj = ImagePicker()
+    var dictAddSalesExecutive : SalesExecutiveModel?
     
     //MARK:- View Lifecycle -
     
@@ -36,9 +38,30 @@ class AddSalesExecutiveVC: UIViewController,UITextFieldDelegate,PassImgDelegate 
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Add Sales Executive"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.addSalesExecutive
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         txtcontactNum.delegate = self
+    }
+    
+    private func validate() -> Bool {
+        if txtfirstName.text?.count == 0{
+            Utility.showAlert(message:LocalisationStrings.AlertMessage.PleaseEnterFirstName , controller: self) { (true) in}
+            return false
+        }else if txtlastName.text?.count == 0{
+            Utility.showAlert(message:LocalisationStrings.AlertMessage.PleaseEnterLastName , controller: self) { (true) in}
+            return false
+        }else if txtcontactNum.text?.count == 0{
+            Utility.showAlert(message:LocalisationStrings.AlertMessage.PleaseEnterContactNumber , controller: self) { (true) in}
+            return false
+        }
+        else if txtcontactNum.text!.count < 10{
+            Utility.showAlert(message:LocalisationStrings.AlertMessage.PleaseEnterValidMobileNumber , controller: self) { (true) in}
+            return false
+        }else if txtpassWord.text?.count == 0{
+            Utility.showAlert(message: LocalisationStrings.AlertMessage.PleaseEnterValidPassword, controller: self) { (true) in}
+            return false
+        }
+        return true
     }
     
     //MARK:- Action -
@@ -49,20 +72,10 @@ class AddSalesExecutiveVC: UIViewController,UITextFieldDelegate,PassImgDelegate 
         imgPickerObj.actionSheet()
     }
     @IBAction func btncreateUser(_ sender: Any) {
-        if txtfirstName.text?.count == 0{
-            Utility.showAlert(message: "Please enter first name", controller: self) { (true) in}
-        }else if txtlastName.text?.count == 0{
-            Utility.showAlert(message: "Please enter last name", controller: self) { (true) in}
-        }else if txtcontactNum.text?.count == 0{
-            Utility.showAlert(message: "Please enter contact number", controller: self) { (true) in}
-        }
-        else if txtcontactNum.text!.count < 10{
-            Utility.showAlert(message: "Please enter valid contact number", controller: self) { (true) in}
-        }else if txtpassWord.text?.count == 0{
-            Utility.showAlert(message: "Please enter password", controller: self) { (true) in}
-        }
-        else{
+        if validate(){
+            //            apiAddSalesExecutive()
             self.navigationController?.popViewController(animated: true)
+            
         }
     }
     
@@ -79,5 +92,50 @@ class AddSalesExecutiveVC: UIViewController,UITextFieldDelegate,PassImgDelegate 
             return range.location < 10
         }
         return true
+    }
+}
+extension AddSalesExecutiveVC {
+    
+    //MARK:- API REGISTER
+    
+    
+    public func apiAddSalesExecutive(){
+        let params : [String : Any]  = [
+            kUserId: dictList?.userId ?? 0,
+            ksalesName: "\(txtfirstName.text ?? "") \(txtlastName.text ?? "")",
+            ksalesNumber: txtcontactNum.text ?? "",
+            klanguauge: "en"
+        ]
+        let imageParam = [
+            ksalesImage:imgProfile.image
+            ] as? [String : UIImage] ?? [:]
+        Utility.showHud()
+        RequestManager.postAPIWithSingleAttachmentMedia(view: self.view, urlPart:Constant.postURL.updateProfile, parameterImage:imageParam, fileUrl:nil, thumbnailImage:UIImage(), parameters: params, successResult: { (response,int)  in
+            Utility.dismissGIF()
+            let jsonData = JSON(response)
+            print(jsonData)
+            if jsonData[kSuccess] == true {
+                if let message = jsonData["message"].string {
+                    if message.count > 0{
+                        Utility.showAlert(message: message, controller: self, alertComplition: { (true) in
+                            if let dict = jsonData[kData].dictionary {
+                                self.dictAddSalesExecutive = SalesExecutiveModel.init(dict: dict)
+                            }
+                        })
+                    }
+                }
+            } else {
+                if let message = jsonData["message"].string {
+                    if message.count > 0{
+                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        }) { (error) in
+            Utility.hideHud()
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
     }
 }

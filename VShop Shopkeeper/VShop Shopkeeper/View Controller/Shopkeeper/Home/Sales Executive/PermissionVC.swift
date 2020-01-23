@@ -64,7 +64,7 @@ class PermissionVC: UIViewController {
     //MARK:- Action -
     
     @objc func selectPermission(sender: UIButton!) {
-       let selectedIndexPath = IndexPath(row: sender.tag, section: 0)
+        let selectedIndexPath = IndexPath(row: sender.tag, section: 0)
         if self.selectedRows.contains(selectedIndexPath)
         {
             self.selectedRows.remove(at: self.selectedRows.firstIndex(of: selectedIndexPath)!)
