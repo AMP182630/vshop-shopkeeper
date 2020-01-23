@@ -39,7 +39,7 @@ class OrderHistoryVC: UIViewController {
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Order History"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.orderHistory
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         SideMenuController.preferences.basic.menuWidth = self.view.frame.width
         
@@ -51,8 +51,8 @@ class OrderHistoryVC: UIViewController {
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registerOrderHistoryCell = UINib(nibName: "OrderHistoryCell", bundle: nil)
-        self.tblView.register(registerOrderHistoryCell, forCellReuseIdentifier: "OrderHistoryCell")
+        let registerOrderHistoryCell = UINib(nibName: OrderHistoryCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerOrderHistoryCell, forCellReuseIdentifier: OrderHistoryCell.staticIdentifier)
     }
     
     //MARK:- Functions -
@@ -65,11 +65,11 @@ class OrderHistoryVC: UIViewController {
     //MARK:- POPULATE TABLE VIEW CELL -
     
     fileprivate func populateTableViewOrderHistoryCell(cell : OrderHistoryCell, indexPath : IndexPath) -> OrderHistoryCell {
-    /*    cell.lblName.text = arrOrderHistoryList[indexPath.row].customerName
-        cell.lblorderId.text = arrOrderHistoryList[indexPath.row].customerOrderId
-        cell.lblQuantity.text = arrOrderHistoryList[indexPath.row].quantity
-        cell.lblPrice.text = arrOrderHistoryList[indexPath.row].price
-        cell.lblorderProcess.text = arrOrderHistoryList[indexPath.row].status */
+        /*    cell.lblName.text = arrOrderHistoryList[indexPath.row].customerName
+         cell.lblorderId.text = arrOrderHistoryList[indexPath.row].customerOrderId
+         cell.lblQuantity.text = arrOrderHistoryList[indexPath.row].quantity
+         cell.lblPrice.text = arrOrderHistoryList[indexPath.row].price
+         cell.lblorderProcess.text = arrOrderHistoryList[indexPath.row].status */
         return cell
     }
     
@@ -99,7 +99,7 @@ extension OrderHistoryVC : UITableViewDataSource,UITableViewDelegate{
         return 10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderHistoryCell") as! OrderHistoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: OrderHistoryCell.staticIdentifier) as! OrderHistoryCell
         return populateTableViewOrderHistoryCell(cell: cell, indexPath: indexPath)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -118,18 +118,14 @@ extension OrderHistoryVC {
     
     //MARK:- API ORDER HISTORY LIST
     
-    fileprivate func apiOrderHistoryList() {
-        let params = [
-            kUserId:UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0,
-            "page":page
-            ] as [String : AnyObject]
-        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+    fileprivate func apiSalesExecutiveList() {
+        let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
+        RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
             let jsonData = JSON(response)
             if jsonData[kSuccess] == true {
-                if let data = jsonData[kData].dictionary {
-                    print(data)
-                    self.totalRecords = data["totalRecords"]?.int ?? 0
-                    if let arrList = data["stores"]?.array {
+                if let dict = jsonData[kData].dictionary {
+                    self.totalRecords = dict["totalRecords"]?.int ?? 0
+                    if let arrList = dict["ratings"]?.array {
                         if arrList.count != 0 {
                             if self.page == 0 {
                                 self.arrOrderHistoryList = arrList.compactMap({(dict) -> OrderHistoryListModel in OrderHistoryListModel(dict: dict.dictionaryValue)})
@@ -142,11 +138,12 @@ extension OrderHistoryVC {
                         }
                     }
                     self.refreshControl.endRefreshing()
+                    
                 }
             } else {
-                if let message = jsonData["message"].string {
-                    if message.count > 0{
-                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
                         })
                     }
                 }
@@ -154,7 +151,6 @@ extension OrderHistoryVC {
         })
         { (error) in
             Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
-                
             })
         }
     }

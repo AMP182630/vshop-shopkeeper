@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WMK-Do-dMp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WMK-Do-dMp">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -141,6 +141,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uxz-2J-oBo">
                                                 <rect key="frame" x="20" y="205" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803921568626" green="0.039215686274509803" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="zhy-hY-iFH"/>
                                                 </constraints>
@@ -166,6 +167,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xs5-ot-2Ng">
                                                 <rect key="frame" x="20" y="290" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803921568626" green="0.039215686274509803" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Rne-Y4-Q5B"/>
                                                 </constraints>
@@ -191,6 +193,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xcz-os-S93">
                                                 <rect key="frame" x="20" y="375" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803921568626" green="0.039215686274509803" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="owH-A2-Qf9"/>
                                                 </constraints>
@@ -216,6 +219,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPK-FW-phZ">
                                                 <rect key="frame" x="20" y="460" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803921568626" green="0.039215686274509803" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="w62-gQ-7mN"/>
                                                 </constraints>
@@ -382,6 +386,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8I-VO-Mco">
                                                 <rect key="frame" x="20" y="205" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803921568626" green="0.039215686274509803" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="6JM-lK-280"/>
                                                 </constraints>
@@ -407,6 +412,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ncp-fG-b76">
                                                 <rect key="frame" x="20" y="290" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803921568626" green="0.039215686274509803" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="QSr-qe-J5m"/>
                                                 </constraints>
@@ -432,6 +438,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AvM-jk-gY1">
                                                 <rect key="frame" x="20" y="375" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803921568626" green="0.039215686274509803" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="nf9-yx-FRy"/>
                                                 </constraints>
@@ -457,6 +464,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKZ-6L-9ji">
                                                 <rect key="frame" x="20" y="460" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803921568626" green="0.039215686274509803" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="lnQ-4s-raJ"/>
                                                 </constraints>
@@ -810,7 +818,7 @@
     <resources>
         <image name="addExecutive" width="64" height="64"/>
         <image name="menu" width="24" height="24"/>
-        <image name="notification" width="26" height="23"/>
+        <image name="notification" width="20" height="20"/>
         <image name="place" width="83" height="83"/>
     </resources>
 </document>

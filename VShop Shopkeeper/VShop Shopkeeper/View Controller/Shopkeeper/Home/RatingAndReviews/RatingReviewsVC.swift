@@ -58,24 +58,24 @@ class RatingReviewsVC: UIViewController {
     }
     
     //MARK:- Functions -
-       
-       fileprivate func pagination() {
-           counter += 10
-           tblView.reloadData()
-       }
+    
+    fileprivate func pagination() {
+        counter += 10
+        tblView.reloadData()
+    }
     
     //MARK:- POPULATE TABLE VIEW CELL -
     
     fileprivate func populateTableViewRatingReviewCell(cell : RatingReviewCell, indexPath : IndexPath) -> RatingReviewCell {
-   /*     cell.lblName.text = arrReviewList[indexPath.row].customerName
-        cell.lblReviews.text = arrReviewList[indexPath.row].comment
-        if let rating = arrReviewList[indexPath.row].rating {
-            if rating != "" {
-                cell.viewRating.rating = Double(Float(rating)!)
-            } else {
-                cell.viewRating.rating = 0
-            }
-        } */
+        /*     cell.lblName.text = arrReviewList[indexPath.row].customerName
+         cell.lblReviews.text = arrReviewList[indexPath.row].comment
+         if let rating = arrReviewList[indexPath.row].rating {
+         if rating != "" {
+         cell.viewRating.rating = Double(Float(rating)!)
+         } else {
+         cell.viewRating.rating = 0
+         }
+         } */
         return cell
     }
     
@@ -122,17 +122,13 @@ extension RatingReviewsVC {
     //MARK:- API RATING & REVIEW LIST
     
     fileprivate func apiReviewList() {
-        let params = [
-            kUserId:UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0,
-            "page":page
-            ] as [String : AnyObject]
-        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+        let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
+        RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
             let jsonData = JSON(response)
             if jsonData[kSuccess] == true {
-                if let data = jsonData[kData].dictionary {
-                    print(data)
-                    self.totalRecords = data["totalRecords"]?.int ?? 0
-                    if let arrList = data["stores"]?.array {
+                if let dict = jsonData[kData].dictionary {
+                    self.totalRecords = dict["totalRecords"]?.int ?? 0
+                    if let arrList = dict["ratings"]?.array {
                         if arrList.count != 0 {
                             if self.page == 0 {
                                 self.arrReviewList = arrList.compactMap({(dict) -> ReviewModel in ReviewModel(dict: dict.dictionaryValue)})
@@ -145,11 +141,12 @@ extension RatingReviewsVC {
                         }
                     }
                     self.refreshControl.endRefreshing()
+                    
                 }
             } else {
-                if let message = jsonData["message"].string {
-                    if message.count > 0{
-                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
                         })
                     }
                 }
@@ -157,7 +154,6 @@ extension RatingReviewsVC {
         })
         { (error) in
             Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
-                
             })
         }
     }

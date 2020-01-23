@@ -38,19 +38,19 @@ class OrderDetailVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Order Detail"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.orderDetail
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registerOrderDetailCell = UINib(nibName: "OrderDetailCell", bundle: nil)
-        self.tblView.register(registerOrderDetailCell, forCellReuseIdentifier: "OrderDetailCell")
-        let registerPriceDetailCell = UINib(nibName: "PriceDetailCell", bundle: nil)
-        self.tblView.register(registerPriceDetailCell, forCellReuseIdentifier: "PriceDetailCell")
-        let registerPaymentModeCell = UINib(nibName: "PaymentModeCell", bundle: nil)
-        self.tblView.register(registerPaymentModeCell, forCellReuseIdentifier: "PaymentModeCell")
+        let registerOrderDetailCell = UINib(nibName: OrderDetailCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerOrderDetailCell, forCellReuseIdentifier: OrderDetailCell.staticIdentifier)
+        let registerPriceDetailCell = UINib(nibName: PriceDetailCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerPriceDetailCell, forCellReuseIdentifier: PriceDetailCell.staticIdentifier)
+        let registerPaymentModeCell = UINib(nibName: PaymentModeCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerPaymentModeCell, forCellReuseIdentifier: PaymentModeCell.staticIdentifier)
         //        self.payment = registerPaymentModeCell
     }
     
@@ -164,13 +164,13 @@ extension OrderDetailVC : UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCell") as! OrderDetailCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: OrderDetailCell.staticIdentifier) as! OrderDetailCell
             return populateTableViewOrderDetailCell(cell: cell, indexPath: indexPath)
         }else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentModeCell") as! PaymentModeCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: PaymentModeCell.staticIdentifier) as! PaymentModeCell
             return populateTableViewPaymentModeCell(cell: cell, indexPath: indexPath)
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PriceDetailCell") as! PriceDetailCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: PriceDetailCell.staticIdentifier) as! PriceDetailCell
             return populateTableViewPriceDetailCell(cell: cell, indexPath: indexPath)
         }
     }

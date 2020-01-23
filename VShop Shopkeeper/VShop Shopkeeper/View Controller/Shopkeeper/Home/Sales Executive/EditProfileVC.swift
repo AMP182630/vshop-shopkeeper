@@ -40,7 +40,7 @@ class EditProfileVC: UIViewController,UITextFieldDelegate,PassImgDelegate {
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Update Sales Executive"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.updateSalesExecutive
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         txtcontactNum.delegate = self
     }

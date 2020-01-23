@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PermissionVC: UIViewController {
     
@@ -17,7 +18,9 @@ class PermissionVC: UIViewController {
     //MARK:- Variables -
     
     var permission = ["Order History ","Call Log","Request Call Back","Check Rating Review","Advertise Video"]
-    var selectedRows:[IndexPath] = []
+    var dictSaleExecutive : SalesExecutiveModel?
+    fileprivate var selectedRows = NSMutableArray()
+    var arrPermission = [PermissionsModel]()
     
     //MARK:- View Lifecycle -
     
@@ -28,34 +31,40 @@ class PermissionVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        //        apiGetPermissions()
         setupView()
     }
     
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Permission"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.permission
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registersalesPermissionCell = UINib(nibName: "PermissionCell", bundle: nil)
-        self.tblView.register(registersalesPermissionCell, forCellReuseIdentifier: "PermissionCell")
+        let registersalesPermissionCell = UINib(nibName: PermissionCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registersalesPermissionCell, forCellReuseIdentifier: PermissionCell.staticIdentifier)
     }
     
     //MARK:- POPULATE TABLE VIEW CELL -
     
     fileprivate func populateTableViewPermissionCell(cell : PermissionCell, indexPath : IndexPath) -> PermissionCell {
         cell.lblPermission.text = permission[indexPath.row]
-        if selectedRows.contains(indexPath)
-        {
+        if selectedRows.contains(permission[indexPath.row]) {
             cell.btnselectPermission.setImage(UIImage(named: "checkBox"), for: .normal)
-        }
-        else{
+        } else {
             cell.btnselectPermission.setImage(UIImage(named: "default"), for: .normal)
         }
+        //        if selectedRows.contains(indexPath)
+        //        {
+        //            cell.btnselectPermission.setImage(UIImage(named: "checkBox"), for: .normal)
+        //        }
+        //        else{
+        //            cell.btnselectPermission.setImage(UIImage(named: "default"), for: .normal)
+        //        }
         cell.btnselectPermission.tag = indexPath.row
         cell.btnselectPermission.addTarget(self, action: #selector(selectPermission(sender:)), for: .touchUpInside)
         return cell
@@ -64,18 +73,15 @@ class PermissionVC: UIViewController {
     //MARK:- Action -
     
     @objc func selectPermission(sender: UIButton!) {
-        let selectedIndexPath = IndexPath(row: sender.tag, section: 0)
-        if self.selectedRows.contains(selectedIndexPath)
-        {
-            self.selectedRows.remove(at: self.selectedRows.firstIndex(of: selectedIndexPath)!)
-        }
-        else
-        {
-            self.selectedRows.append(selectedIndexPath)
+        if self.selectedRows.contains(arrPermission[sender.tag].permissiontId) {
+            self.selectedRows.remove(arrPermission[sender.tag].permissiontId)
+        } else {
+            self.selectedRows.add(arrPermission[sender.tag].permissiontId)
         }
         self.tblView.reloadData()
     }
     @IBAction func btnSubmit(_ sender: Any) {
+        apiGivePermission()
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -88,7 +94,62 @@ extension PermissionVC : UITableViewDataSource,UITableViewDelegate{
         return permission.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PermissionCell") as! PermissionCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PermissionCell.staticIdentifier) as! PermissionCell
         return populateTableViewPermissionCell(cell: cell, indexPath: indexPath)
+    }
+}
+extension PermissionVC {
+    
+    public func apiGivePermission(){
+        let params : [String : Any]  = [
+            kUserId: dictList?.userId ?? 0,
+            ksalesId : dictSaleExecutive?.salesId ?? 0,
+            kpermission : selectedRows
+        ]
+        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let data = jsonData[kData].dictionary {
+                    print(data)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } else {
+                if let message = jsonData["message"].string {
+                    if message.count > 0{
+                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
+    }
+    
+    fileprivate func apiGetPermissions()
+    {
+        RequestManager.getAPIWithURLString(urlPart: "",successResult: { (response,statuscode) in
+            Utility.dismissGIF()
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let arrdata = jsonData[kData].array {
+                    self.arrPermission = arrdata.compactMap({(dict) -> PermissionsModel in PermissionsModel(dict: dict.dictionaryValue)})
+                }
+            } else {
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.dismissGIF()
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
     }
 }

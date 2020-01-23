@@ -30,6 +30,11 @@ class NotificationViewController: UIViewController {
         self.viewConfiguration()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+//        apiNotificationList()
+    }
+    
     //MARK:- Setup Methods -
     
     fileprivate func viewConfiguration() {
@@ -99,20 +104,16 @@ extension NotificationViewController : UITableViewDelegate, UITableViewDataSourc
 
 extension NotificationViewController {
     
-    //MARK:- API NOTIFICATION LIST
+    //MARK:- API RATING & REVIEW LIST
     
     fileprivate func apiNotificationList() {
-        let params = [
-            kUserId:UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0,
-            "page":page
-            ] as [String : AnyObject]
-        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+        let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
+        RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
             let jsonData = JSON(response)
             if jsonData[kSuccess] == true {
-                if let data = jsonData[kData].dictionary {
-                    print(data)
-                    self.totalRecords = data["totalRecords"]?.int ?? 0
-                    if let arrList = data["notifications"]?.array {
+                if let dict = jsonData[kData].dictionary {
+                    self.totalRecords = dict["totalRecords"]?.int ?? 0
+                    if let arrList = dict["ratings"]?.array {
                         if arrList.count != 0 {
                             if self.page == 0 {
                                 self.arrNotificationList = arrList.compactMap({(dict) -> NotificationModel in NotificationModel(dict: dict.dictionaryValue)})
@@ -125,11 +126,12 @@ extension NotificationViewController {
                         }
                     }
                     self.refreshControl.endRefreshing()
+                    
                 }
             } else {
-                if let message = jsonData["message"].string {
-                    if message.count > 0{
-                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
                         })
                     }
                 }
@@ -137,7 +139,6 @@ extension NotificationViewController {
         })
         { (error) in
             Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
-                
             })
         }
     }

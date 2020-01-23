@@ -34,7 +34,7 @@ class CallLogVC: UIViewController {
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Call Log"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.callLog
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
         SideMenuController.preferences.basic.menuWidth = self.view.frame.width
@@ -43,8 +43,8 @@ class CallLogVC: UIViewController {
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registerCallLogCell = UINib(nibName: "CallLogCell", bundle: nil)
-        self.tblView.register(registerCallLogCell, forCellReuseIdentifier: "CallLogCell")
+        let registerCallLogCell = UINib(nibName: CallLogCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerCallLogCell, forCellReuseIdentifier: CallLogCell.staticIdentifier)
     }
     
     //MARK:- POPULATE TABLE VIEW CELL -
@@ -73,7 +73,7 @@ extension CallLogVC : UITableViewDataSource,UITableViewDelegate{
         return name.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CallLogCell") as! CallLogCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CallLogCell.staticIdentifier) as! CallLogCell
         return populateTableViewCallLogCell(cell: cell, indexPath: indexPath)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

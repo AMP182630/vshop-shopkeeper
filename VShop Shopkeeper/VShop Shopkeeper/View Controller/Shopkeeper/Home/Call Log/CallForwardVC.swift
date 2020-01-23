@@ -39,8 +39,8 @@ class CallForwardVC: UIViewController {
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registerCallForwardCell = UINib(nibName: "CallForwardCell", bundle: nil)
-        self.tblView.register(registerCallForwardCell, forCellReuseIdentifier: "CallForwardCell")
+        let registerCallForwardCell = UINib(nibName: CallForwardCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerCallForwardCell, forCellReuseIdentifier: CallForwardCell.staticIdentifier)
     }
     
     //MARK:- POPULATE TABLE VIEW CELL -
@@ -70,7 +70,7 @@ extension CallForwardVC : UITableViewDataSource,UITableViewDelegate{
         return name.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CallForwardCell") as! CallForwardCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CallForwardCell.staticIdentifier) as! CallForwardCell
         return populateTableViewCallForwardCell(cell: cell, indexPath: indexPath)
     }
 }

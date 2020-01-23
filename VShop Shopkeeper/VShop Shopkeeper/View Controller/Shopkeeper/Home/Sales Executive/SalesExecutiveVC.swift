@@ -34,13 +34,14 @@ class SalesExecutiveVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        //        apiSalesExecutiveList()
         setupView()
     }
     
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Sales Executive"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.salesExecutive
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         SideMenuController.preferences.basic.menuWidth = self.view.frame.width
         
@@ -52,8 +53,8 @@ class SalesExecutiveVC: UIViewController {
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registersalesExecutiveCell = UINib(nibName: "SalesExecutiveCell", bundle: nil)
-        self.tblView.register(registersalesExecutiveCell, forCellReuseIdentifier: "SalesExecutiveCell")
+        let registersalesExecutiveCell = UINib(nibName: SalesExecutiveCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registersalesExecutiveCell, forCellReuseIdentifier: SalesExecutiveCell.staticIdentifier)
     }
     
     //MARK:- POPULATE TABLE VIEW CELL -
@@ -116,7 +117,7 @@ extension SalesExecutiveVC : UITableViewDataSource,UITableViewDelegate{
         return name.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SalesExecutiveCell") as! SalesExecutiveCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SalesExecutiveCell.staticIdentifier) as! SalesExecutiveCell
         return populateTableViewsalesExecutive(cell: cell, indexPath: indexPath)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -129,20 +130,16 @@ extension SalesExecutiveVC : UITableViewDataSource,UITableViewDelegate{
 
 extension SalesExecutiveVC {
     
-    //MARK:- API SALES EXECUTIVE LIST
+    //MARK:- API RATING & REVIEW LIST
     
-    fileprivate func apiSaleExecutiveList() {
-        let params = [
-            kUserId:UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0,
-            "page":page
-            ] as [String : AnyObject]
-        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+    fileprivate func apiSalesExecutiveList() {
+        let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
+        RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
             let jsonData = JSON(response)
             if jsonData[kSuccess] == true {
-                if let data = jsonData[kData].dictionary {
-                    print(data)
-                    self.totalRecords = data["totalRecords"]?.int ?? 0
-                    if let arrList = data["stores"]?.array {
+                if let dict = jsonData[kData].dictionary {
+                    self.totalRecords = dict["totalRecords"]?.int ?? 0
+                    if let arrList = dict["ratings"]?.array {
                         if arrList.count != 0 {
                             if self.page == 0 {
                                 self.arrSalesList = arrList.compactMap({(dict) -> SalesExecutiveModel in SalesExecutiveModel(dict: dict.dictionaryValue)})
@@ -155,11 +152,12 @@ extension SalesExecutiveVC {
                         }
                     }
                     self.refreshControl.endRefreshing()
+                    
                 }
             } else {
-                if let message = jsonData["message"].string {
-                    if message.count > 0{
-                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
                         })
                     }
                 }
@@ -167,7 +165,6 @@ extension SalesExecutiveVC {
         })
         { (error) in
             Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
-                
             })
         }
     }

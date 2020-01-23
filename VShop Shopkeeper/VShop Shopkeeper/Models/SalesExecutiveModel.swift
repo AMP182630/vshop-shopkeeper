@@ -19,3 +19,13 @@ class SalesExecutiveModel: NSObject {
         salesId = dict["salesId"]?.intValue ?? 0
     }
 }
+
+class PermissionsModel: NSObject {
+    var permissiontId = Int()
+    var PermissionText = String()
+    
+    init(dict : [String : JSON]) {
+        PermissionText = dict["PermissionText"]?.stringValue ?? ""
+        permissiontId = dict["permissiontId"]?.intValue ?? 0
+    }
+}
