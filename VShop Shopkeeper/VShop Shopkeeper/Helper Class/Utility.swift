@@ -106,14 +106,14 @@ class Utility:NSObject{
     
     class func showAlertWithTwoBtns (messgae : String , controller : UIViewController,alertComplition : @escaping AlertOkComplition ){
         
-        let alertView = UIAlertController(title: "Glambolt", message: messgae, preferredStyle: .alert)
+        let alertView = UIAlertController(title: "VShop", message: messgae, preferredStyle: .alert)
         let alertYes = UIAlertAction(title: "Yes", style: .default) { (action) in
             alertComplition(true)
         }
         let alertNo = UIAlertAction(title: "No", style: .default) { (action) in
             alertComplition(false)
         }
-        alertYes.setValue(UIColor(red: 212/255, green: 156/255, blue: 150/255, alpha: 1), forKey: "titleTextColor")
+//        alertYes.setValue(UIColor(red: 212/255, green: 156/255, blue: 150/255, alpha: 1), forKey: "titleTextColor")
         alertView.addAction(alertYes)
         alertView.addAction(alertNo)
         

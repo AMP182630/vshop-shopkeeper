@@ -124,8 +124,8 @@ extension OrderHistoryVC {
             let jsonData = JSON(response)
             if jsonData[kSuccess] == true {
                 if let dict = jsonData[kData].dictionary {
-                    self.totalRecords = dict["totalRecords"]?.int ?? 0
-                    if let arrList = dict["ratings"]?.array {
+                    self.totalRecords = dict[ktotalRecords]?.int ?? 0
+                    if let arrList = dict["data"]?.array {
                         if arrList.count != 0 {
                             if self.page == 0 {
                                 self.arrOrderHistoryList = arrList.compactMap({(dict) -> OrderHistoryListModel in OrderHistoryListModel(dict: dict.dictionaryValue)})

@@ -53,8 +53,8 @@ class RatingReviewsVC: UIViewController {
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registerRatingReviewCell = UINib(nibName: "RatingReviewCell", bundle: nil)
-        self.tblView.register(registerRatingReviewCell, forCellReuseIdentifier: "RatingReviewCell")
+        let registerRatingReviewCell = UINib(nibName: RatingReviewCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerRatingReviewCell, forCellReuseIdentifier: RatingReviewCell.staticIdentifier)
     }
     
     //MARK:- Functions -
@@ -106,7 +106,7 @@ extension RatingReviewsVC : UITableViewDataSource,UITableViewDelegate{
         return 10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RatingReviewCell") as! RatingReviewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RatingReviewCell.staticIdentifier) as! RatingReviewCell
         return populateTableViewRatingReviewCell(cell: cell, indexPath: indexPath)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -128,7 +128,7 @@ extension RatingReviewsVC {
             if jsonData[kSuccess] == true {
                 if let dict = jsonData[kData].dictionary {
                     self.totalRecords = dict["totalRecords"]?.int ?? 0
-                    if let arrList = dict["ratings"]?.array {
+                    if let arrList = dict["data"]?.array {
                         if arrList.count != 0 {
                             if self.page == 0 {
                                 self.arrReviewList = arrList.compactMap({(dict) -> ReviewModel in ReviewModel(dict: dict.dictionaryValue)})

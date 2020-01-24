@@ -139,7 +139,7 @@ extension SalesExecutiveVC {
             if jsonData[kSuccess] == true {
                 if let dict = jsonData[kData].dictionary {
                     self.totalRecords = dict["totalRecords"]?.int ?? 0
-                    if let arrList = dict["ratings"]?.array {
+                    if let arrList = dict["data"]?.array {
                         if arrList.count != 0 {
                             if self.page == 0 {
                                 self.arrSalesList = arrList.compactMap({(dict) -> SalesExecutiveModel in SalesExecutiveModel(dict: dict.dictionaryValue)})

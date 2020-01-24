@@ -32,8 +32,8 @@ class SideBar: UIViewController {
     fileprivate func viewConfiguration() {
         menuListTableView.delegate = self
         menuListTableView.dataSource = self
-        let menuListNib = UINib.init(nibName: "MenuTableViewCell", bundle: nil)
-        self.menuListTableView.register(menuListNib, forCellReuseIdentifier: "MenuTableViewCell")
+        let menuListNib = UINib.init(nibName: MenuTableViewCell.staticIdentifier, bundle: nil)
+        self.menuListTableView.register(menuListNib, forCellReuseIdentifier: MenuTableViewCell.staticIdentifier)
         self.menuListTableView.tableFooterView = UIView()
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         hideMenuView.addGestureRecognizer(tap)
@@ -62,7 +62,7 @@ extension SideBar : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let menuListCell = menuListTableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
+        let menuListCell = menuListTableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.staticIdentifier, for: indexPath) as! MenuTableViewCell
         menuListCell.menuListLabel.text = menuList[indexPath.row]
         return menuListCell
     }
@@ -101,10 +101,15 @@ extension SideBar : UITableViewDataSource,UITableViewDelegate {
                 UIStoryboard.init(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") }, with: "ProfileVC")
             sideMenuController?.setContentViewController(with: "ProfileVC")
         }else{
-            //apiLogout()
-            let nav = Constant.Storyboards.Login.instantiateViewController(withIdentifier: "loginNavigationVC")
-            Constant.General.userdefaults.removeObject(forKey: "otpVerify")
-            appDelegate.window?.rootViewController = nav
+            Utility.showAlertWithTwoBtns(messgae: LocalisationStrings.AlertMessage.logout, controller: self) { (action) in
+                if action == true {
+                    //apiLogout()
+                    let nav = Constant.Storyboards.Login.instantiateViewController(withIdentifier: "loginNavigationVC")
+                    Constant.General.userdefaults.removeObject(forKey: "otpVerify")
+                    appDelegate.window?.rootViewController = nav
+                }
+            }
+            
         }
     }
 }

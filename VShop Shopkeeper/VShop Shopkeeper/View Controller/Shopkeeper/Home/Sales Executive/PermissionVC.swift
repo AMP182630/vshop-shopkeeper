@@ -21,6 +21,10 @@ class PermissionVC: UIViewController {
     var dictSaleExecutive : SalesExecutiveModel?
     fileprivate var selectedRows = NSMutableArray()
     var arrPermission = [PermissionsModel]()
+    var refreshControl = UIRefreshControl()
+    var counter = 3
+    public var page = Int()
+    public var totalRecords = Int()
     
     //MARK:- View Lifecycle -
     
@@ -40,6 +44,14 @@ class PermissionVC: UIViewController {
     func setupView(){
         self.navigationItem.title = LocalisationStrings.NavigationTitle.permission
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        refreshControl.attributedTitle = NSAttributedString(string: Constant.defaultValues.PullToRefresh)
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+        tblView.addSubview(refreshControl)
+    }
+    
+    fileprivate func pagination() {
+        counter += 10
+        tblView.reloadData()
     }
     
     //MARK:- Register XIB -
@@ -72,6 +84,13 @@ class PermissionVC: UIViewController {
     
     //MARK:- Action -
     
+    @objc func refresh(sender:AnyObject) {
+        counter += 1
+        self.page = 0
+        tblView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
     @objc func selectPermission(sender: UIButton!) {
         if self.selectedRows.contains(arrPermission[sender.tag].permissiontId) {
             self.selectedRows.remove(arrPermission[sender.tag].permissiontId)
@@ -96,6 +115,12 @@ extension PermissionVC : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PermissionCell.staticIdentifier) as! PermissionCell
         return populateTableViewPermissionCell(cell: cell, indexPath: indexPath)
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastItem = counter - 1
+        if indexPath.row == lastItem {
+            pagination()
+        }
     }
 }
 extension PermissionVC {

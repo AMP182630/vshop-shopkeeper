@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SwiftyJSON
 
 class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
@@ -29,6 +30,7 @@ class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDe
     var pickerController = UIImagePickerController()
     var videofilepathURL = NSURL()
     var showVideoimg = UIImage()
+    var videoURLString = String()
     
     //MARK:- View Lifecycle -
     
@@ -150,7 +152,7 @@ class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDe
             self.present(imagePicker, animated: true, completion: nil)
         }
         else{
-            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            let alert  = UIAlertController(title: "VShop", message: LocalisationStrings.AlertMessage.donthaveCamera, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -169,7 +171,12 @@ class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDe
             topFilepath.constant = 30
             topuploadVideo.constant = 15
             heighttxtFIlepath.constant = 45
-//            txtvideofilePath.text = try String(contentsOf: videoURL)
+            do {
+                self.videoURLString = try String(contentsOf: videoURL)
+                txtvideofilePath.text = videoURLString
+            } catch  {
+                print("Catch")
+            }
         }
         else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
@@ -181,3 +188,35 @@ class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDe
         picker.dismiss(animated: true, completion: nil)
     }
 }
+//extension AddVideoVC {
+//
+//    public func apiSendInvitation(){
+//        let params = [
+//            kUserId : dictList?.userId ?? 0,
+//            kvideoName: txtName.text ?? "",
+//            kvideoUrl: videoURLString,
+//            klanguauge: "en"
+//            ] as [String : AnyObject]
+//        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+//            let jsonData = JSON(response)
+//            if jsonData[kSuccess] == true {
+//                if let data = jsonData[kData].dictionary {
+//                    print(data)
+//                    Utility.showAlert(message: LocalisationStrings.AlertMessage.invitationSendSuccessfully, controller: self, alertComplition: { (action) in
+//                    })
+//                }
+//            } else {
+//                if let message = jsonData["message"].string {
+//                    if message.count > 0{
+//                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+//                        })
+//                    }
+//                }
+//            }
+//        })
+//        { (error) in
+//            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+//            })
+//        }
+//    }
+//}

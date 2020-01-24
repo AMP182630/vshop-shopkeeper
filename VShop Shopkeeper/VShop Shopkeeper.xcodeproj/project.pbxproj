@@ -11,6 +11,7 @@
 		0C0A2A6A238E6D6900A54C2F /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0A2A68238E6D6900A54C2F /* NotificationTableViewCell.xib */; };
 		0C0A2A6B238E6D6900A54C2F /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A2A69238E6D6900A54C2F /* NotificationTableViewCell.swift */; };
 		0C0A2A6E238E6DB300A54C2F /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C0A2A6D238E6DB300A54C2F /* Notification.storyboard */; };
+		340773DE23DADC3A007501F9 /* AdvertiseVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340773DD23DADC3A007501F9 /* AdvertiseVideoModel.swift */; };
 		3432A43523827FCB008198BA /* CallLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3432A43323827FCB008198BA /* CallLogCell.swift */; };
 		3432A43623827FCB008198BA /* CallLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3432A43423827FCB008198BA /* CallLogCell.xib */; };
 		3432A43923828972008198BA /* CallLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3432A43823828972008198BA /* CallLog.storyboard */; };
@@ -156,6 +157,7 @@
 		0C0A2A69238E6D6900A54C2F /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		0C0A2A6D238E6DB300A54C2F /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		282E6D094694A4507CAEAD69 /* Pods_VShop_Shopkeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VShop_Shopkeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		340773DD23DADC3A007501F9 /* AdvertiseVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiseVideoModel.swift; sourceTree = "<group>"; };
 		3432A43323827FCB008198BA /* CallLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallLogCell.swift; sourceTree = "<group>"; };
 		3432A43423827FCB008198BA /* CallLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallLogCell.xib; sourceTree = "<group>"; };
 		3432A43823828972008198BA /* CallLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CallLog.storyboard; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				348B781F23D88B5C00E0016D /* NotificationModel.swift */,
 				348B782023D88B5C00E0016D /* UserModel.swift */,
 				348B782123D88B5C00E0016D /* SalesExecutiveModel.swift */,
+				340773DD23DADC3A007501F9 /* AdvertiseVideoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1063,6 +1066,7 @@
 				34FF17EB237D5A23004C83BC /* Storyboard.swift in Sources */,
 				34BBB70B237E9418008BACFE /* PaymentModeCell.swift in Sources */,
 				34926462237D8C95002178EA /* PermissionCell.swift in Sources */,
+				340773DE23DADC3A007501F9 /* AdvertiseVideoModel.swift in Sources */,
 				3492645F237D8C66002178EA /* PermissionVC.swift in Sources */,
 				34FF17EE237D5A23004C83BC /* Utility.swift in Sources */,
 				34BBB74B237EBE6E008BACFE /* DisplayTimeTableViewCell.swift in Sources */,

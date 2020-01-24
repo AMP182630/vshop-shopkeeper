@@ -57,25 +57,25 @@ class OrderDetailVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
     //MARK:- POPULATE TABLE VIEW CELL -
     
     fileprivate func populateTableViewOrderDetailCell(cell : OrderDetailCell, indexPath : IndexPath) -> OrderDetailCell {
-     /*   cell.lblName.text = dictOrderDetails?.customerName
-        cell.lblorderId.text = dictOrderDetails?.customerOrderId
-        cell.lblQuantity.text = dictOrderDetails?.quantity
-        cell.lbldeliveryStatus.text = dictOrderDetails?.status
-        cell.lblPrice.text = dictOrderDetails?.price */
+        /*   cell.lblName.text = dictOrderDetails?.customerName
+         cell.lblorderId.text = dictOrderDetails?.customerOrderId
+         cell.lblQuantity.text = dictOrderDetails?.quantity
+         cell.lbldeliveryStatus.text = dictOrderDetails?.status
+         cell.lblPrice.text = dictOrderDetails?.price */
         cell.btnselectPayment.addTarget(self, action: #selector(selectPayment(sender:)), for: .touchUpInside)
         return cell
     }
     fileprivate func populateTableViewPriceDetailCell(cell : PriceDetailCell, indexPath : IndexPath) -> PriceDetailCell {
-     /*   cell.lblproductPrice.text = dictOrderDetails?.price
-        cell.lbldeliveryCharge.text = dictOrderDetails?.deliveryCharge
-        cell.lblGST.text = dictOrderDetails?.GST
-        cell.lblpromotionPrice.text = dictOrderDetails?.AppliedPromotionPrice
-        cell.lbltotalAmount.text = dictOrderDetails?.TotalAmount */
+        /*   cell.lblproductPrice.text = dictOrderDetails?.price
+         cell.lbldeliveryCharge.text = dictOrderDetails?.deliveryCharge
+         cell.lblGST.text = dictOrderDetails?.GST
+         cell.lblpromotionPrice.text = dictOrderDetails?.AppliedPromotionPrice
+         cell.lbltotalAmount.text = dictOrderDetails?.TotalAmount */
         return cell
     }
     fileprivate func populateTableViewPaymentModeCell(cell : PaymentModeCell, indexPath : IndexPath) -> PaymentModeCell {
-/*        cell.lblcardNum.text = dictOrderDetails?.creditCard
-        cell.lbltransactionID.text = dictOrderDetails?.transactionId */
+        /*        cell.lblcardNum.text = dictOrderDetails?.creditCard
+         cell.lbltransactionID.text = dictOrderDetails?.transactionId */
         return cell
     }
     
@@ -116,12 +116,8 @@ class OrderDetailVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
             }
             self.pickerView.removeFromSuperview()
         }
-        let section = 0
-        let row = 0
-        let indexPath = IndexPath(row: row, section: section)
-        if let cell = tblView.cellForRow(at: indexPath) as? OrderDetailCell {
-            cell.lbldeliveryStatus.text = myPickerData[selectedIndex]
-        }
+        //        apiOrderStatus()
+        selectedIndex = 0
     }
     
     @objc func cancelClick(){
@@ -191,6 +187,41 @@ extension OrderDetailVC {
                 if let messages = jsonData["error"].string {
                     if messages.count > 0{
                         Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
+    }
+    
+    public func apiOrderStatus(){
+        let params : [String : Any]  = [
+            kUserId: dictList?.userId ?? 0,
+            kcustomerId : dictOrderDetails?.customerId ?? 0,
+            kcustomerOrderId : dictOrderDetails?.customerOrderId ?? "",
+            korderStatus : myPickerData[selectedIndex],
+            klanguauge: "en"
+        ]
+        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let data = jsonData[kData].dictionary {
+                    print(data)
+                    let section = 0
+                    let row = 0
+                    let indexPath = IndexPath(row: row, section: section)
+                    if let cell = self.tblView.cellForRow(at: indexPath) as? OrderDetailCell {
+                        cell.lbldeliveryStatus.text = self.myPickerData[self.selectedIndex]
+                    }
+                }
+            } else {
+                if let message = jsonData["message"].string {
+                    if message.count > 0{
+                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
                         })
                     }
                 }
