@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenuSwift
+import SwiftyJSON
 
 class RequestCallbackVC: UIViewController {
     
@@ -17,6 +18,11 @@ class RequestCallbackVC: UIViewController {
     
     //MARK:- Variables -
     
+    var refreshControl = UIRefreshControl()
+    var counter = 3
+    public var arrRequestCallList = [RequestCallBack]()
+    public var page = Int()
+    public var totalRecords = Int()
     
     //MARK:- View Lifecycle -
     
@@ -37,6 +43,15 @@ class RequestCallbackVC: UIViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
         SideMenuController.preferences.basic.menuWidth = self.view.frame.width
+        
+        refreshControl.attributedTitle = NSAttributedString(string: Constant.defaultValues.PullToRefresh)
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+        tblView.addSubview(refreshControl)
+    }
+    
+    fileprivate func pagination() {
+        counter += 10
+        tblView.reloadData()
     }
     
     //MARK:- Register XIB -
@@ -55,6 +70,12 @@ class RequestCallbackVC: UIViewController {
     
     //MARK:- Action -
     
+    @objc func refresh(sender:AnyObject) {
+        counter += 1
+        self.page = 0
+        tblView.reloadData()
+        refreshControl.endRefreshing()
+    }
     @IBAction func btnMenu(_ sender: Any) {
         self.sideMenuController?.revealMenu()
     }
@@ -78,5 +99,52 @@ extension RequestCallbackVC : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCallbackCell") as! RequestCallbackCell
         return populateTableViewRequestCallbackCell(cell: cell, indexPath: indexPath)
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastItem = counter - 1
+        if indexPath.row == lastItem {
+            pagination()
+        }
+    }
+}
+extension RequestCallbackVC {
+    
+    //MARK:- API RATING & REVIEW LIST
+    
+    fileprivate func apiReviewList() {
+        let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
+        RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let dict = jsonData[kData].dictionary {
+                    self.totalRecords = dict["totalRecords"]?.int ?? 0
+                    if let arrList = dict["data"]?.array {
+                        if arrList.count != 0 {
+                            if self.page == 0 {
+                                self.arrRequestCallList = arrList.compactMap({(dict) -> RequestCallBack in RequestCallBack(dict: dict.dictionaryValue)})
+                            } else {
+                                for dict in arrList {
+                                    self.arrRequestCallList.append(RequestCallBack(dict: dict.dictionaryValue))
+                                }
+                            }
+                            self.tblView.reloadData()
+                        }
+                    }
+                    self.refreshControl.endRefreshing()
+                    
+                }
+            } else {
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
     }
 }

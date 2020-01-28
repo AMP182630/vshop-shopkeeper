@@ -10,6 +10,12 @@ import UIKit
 
 class HashTagTableViewCell: UITableViewCell {
 
+    //MARK:- Outlets -
+    
+    @IBOutlet weak var lblHashtags: UILabel!
+    
+    //MARK:- cell lifecycle -
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

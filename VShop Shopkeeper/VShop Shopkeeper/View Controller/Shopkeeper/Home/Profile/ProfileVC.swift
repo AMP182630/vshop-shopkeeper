@@ -22,6 +22,7 @@ class ProfileVC: UIViewController,PassImgDelegate{
     let days = ["Monday","Tuesday","Wednesday","Thursday","Friday"]
     let categoryList = ["Electronics", "TVs", "Fashion", "Home", "Clothes"]
     let details = ["PAN Card Details","GST Certi Details","Aadhar Card Details","Store Registeration Certi. Details","Other Documents","Store Images"]
+    let hastags = ["Clothing","Electronics","Fashion"]
     var imgPickerObj = ImagePicker()
     
     //MARK:- Life Cycle Methods -
@@ -69,6 +70,9 @@ class ProfileVC: UIViewController,PassImgDelegate{
         return cell
     }
     fileprivate func  populateHashTagCell(cell: HashTagTableViewCell, indexPath: IndexPath) -> HashTagTableViewCell {
+        cell.lblHashtags.text = hastags[indexPath.row]
+        cell.lblHashtags.font = UIFont(name: "Roboto-Regular", size: 16)
+        cell.lblHashtags.textColor = UIColor.init(red: 94/255, green: 94/255, blue: 94/255, alpha: 1)
         return cell
     }
     fileprivate func  populateCategoryCell(cell: CategoryTableViewCell, indexPath: IndexPath) -> CategoryTableViewCell {
@@ -126,7 +130,7 @@ extension ProfileVC : UITableViewDelegate,UITableViewDataSource {
         }else if section == 1{
             return storeFieldName.count
         }else if section == 2{
-            return 1
+            return hastags.count
         }else if section == 3{
             return categoryList.count
         }else if section == 4{
