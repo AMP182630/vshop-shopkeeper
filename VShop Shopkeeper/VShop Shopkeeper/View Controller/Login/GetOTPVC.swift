@@ -48,8 +48,8 @@ class GetOTPVC: UIViewController {
         }
         else{
             Constant.General.userdefaults.set("12345", forKey: "otpVerify")
-            let rootViewController = Storyboard.main.instantiate(viewController: SideMenuController.self)
-            let controller = Storyboard.main.instantiate(viewController:SalesExecutiveVC.self)
+            let rootViewController = Storyboard.salescallLog.instantiate(viewController: SideMenuController.self)
+            let controller = Storyboard.salescallLog.instantiate(viewController: SalesSideBar.self)
             rootViewController?.contentViewController = controller
             self.navigationController?.pushViewController(rootViewController ?? self, animated: true)
         }

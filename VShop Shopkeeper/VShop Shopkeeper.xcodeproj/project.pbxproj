@@ -59,6 +59,7 @@
 		3475225423E1B9DC005B6C50 /* NextButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3475225223E1B9DC005B6C50 /* NextButtonTableViewCell.xib */; };
 		3475225723E1BA6A005B6C50 /* ClickedItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475225523E1BA6A005B6C50 /* ClickedItemsCell.swift */; };
 		3475225823E1BA6A005B6C50 /* ClickedItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3475225623E1BA6A005B6C50 /* ClickedItemsCell.xib */; };
+		3475225C23E1BEB9005B6C50 /* SalesSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475225A23E1BEB9005B6C50 /* SalesSideBar.swift */; };
 		3475E3D1238292BF00CC1FFC /* VideocallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3D0238292BF00CC1FFC /* VideocallVC.swift */; };
 		3475E3D523829D5100CC1FFC /* CallForwardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3D423829D5100CC1FFC /* CallForwardVC.swift */; };
 		3475E3D823829DA000CC1FFC /* CallForwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475E3D623829DA000CC1FFC /* CallForwardCell.swift */; };
@@ -240,6 +241,7 @@
 		3475225223E1B9DC005B6C50 /* NextButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextButtonTableViewCell.xib; sourceTree = "<group>"; };
 		3475225523E1BA6A005B6C50 /* ClickedItemsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickedItemsCell.swift; sourceTree = "<group>"; };
 		3475225623E1BA6A005B6C50 /* ClickedItemsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClickedItemsCell.xib; sourceTree = "<group>"; };
+		3475225A23E1BEB9005B6C50 /* SalesSideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesSideBar.swift; sourceTree = "<group>"; };
 		3475E3D0238292BF00CC1FFC /* VideocallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideocallVC.swift; sourceTree = "<group>"; };
 		3475E3D423829D5100CC1FFC /* CallForwardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallForwardVC.swift; sourceTree = "<group>"; };
 		3475E3D623829DA000CC1FFC /* CallForwardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallForwardCell.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		34111AF82384F2760073A397 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3475225923E1BEB9005B6C50 /* SideMenu */,
 				3475220C23E1B943005B6C50 /* Advertise Video */,
 				3475221423E1B943005B6C50 /* Call Log */,
 				3475220F23E1B943005B6C50 /* Order History */,
@@ -607,6 +610,15 @@
 			);
 			path = NextButtonCell;
 			sourceTree = "<group>";
+		};
+		3475225923E1BEB9005B6C50 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3475225A23E1BEB9005B6C50 /* SalesSideBar.swift */,
+			);
+			name = SideMenu;
+			path = "VShop Shopkeeper/View Controller/Sales Executive/Home/SideMenu";
+			sourceTree = SOURCE_ROOT;
 		};
 		3475E3DA2382A52400CC1FFC /* Request Callback */ = {
 			isa = PBXGroup;
@@ -1227,6 +1239,7 @@
 				34FF182F237D7CBF004C83BC /* AddSalesExecutiveVC.swift in Sources */,
 				34BBB74D237EBE6E008BACFE /* AddStoreDetailsTableViewCell.swift in Sources */,
 				34BBB729237EBD64008BACFE /* ProfileImageTableViewCell.swift in Sources */,
+				3475225C23E1BEB9005B6C50 /* SalesSideBar.swift in Sources */,
 				34FF1828237D5FF8004C83BC /* MenuTableViewCell.swift in Sources */,
 				348B781B23D88B3400E0016D /* SideBar.swift in Sources */,
 				3475E3E82382AF5300CC1FFC /* RatingReviewsVC.swift in Sources */,
