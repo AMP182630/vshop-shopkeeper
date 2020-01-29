@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="PricingCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="PricingCell" rowHeight="205" id="KGk-i7-Jjw" customClass="PricingCell" customModule="VShop_Shopkeeper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="205"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="363" height="205"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goz-Oi-YU8">
+                        <rect key="frame" x="0.0" y="0.0" width="363" height="205"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg1-9c-6Vv">
+                                <rect key="frame" x="20" y="10" width="323" height="1"/>
+                                <color key="backgroundColor" red="0.90588235294117647" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="UPG-ls-Nqo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ar-Lc-Cha">
+                                <rect key="frame" x="20" y="43" width="96.5" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="navigationColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Charge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evY-RN-eM1">
+                                <rect key="frame" x="20" y="70" width="111" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="navigationColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payable Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="un4-bV-SCH">
+                                <rect key="frame" x="20" y="97" width="117" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="navigationColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$130" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfO-8I-Sqw">
+                                <rect key="frame" x="161" y="43" width="36" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="navigationColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AN-GQ-cZ6">
+                                <rect key="frame" x="161" y="70" width="27" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="navigationColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$160" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7d-e3-MYH">
+                                <rect key="frame" x="161" y="97" width="36" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="navigationColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jg1-9c-6Vv" firstAttribute="leading" secondItem="goz-Oi-YU8" secondAttribute="leading" constant="20" id="35b-0u-Rxr"/>
+                            <constraint firstItem="4AN-GQ-cZ6" firstAttribute="leading" secondItem="y7d-e3-MYH" secondAttribute="leading" id="7sY-Tm-PUU"/>
+                            <constraint firstItem="4AN-GQ-cZ6" firstAttribute="centerY" secondItem="evY-RN-eM1" secondAttribute="centerY" id="BBj-2O-cgS"/>
+                            <constraint firstItem="un4-bV-SCH" firstAttribute="leading" secondItem="evY-RN-eM1" secondAttribute="leading" id="Oqo-Ab-YPz"/>
+                            <constraint firstItem="zfO-8I-Sqw" firstAttribute="leading" secondItem="4AN-GQ-cZ6" secondAttribute="leading" id="RM5-Y0-TVw"/>
+                            <constraint firstAttribute="trailing" secondItem="jg1-9c-6Vv" secondAttribute="trailing" constant="20" id="TEP-L9-q77"/>
+                            <constraint firstItem="evY-RN-eM1" firstAttribute="top" secondItem="5ar-Lc-Cha" secondAttribute="bottom" constant="8" id="UaR-p2-MNN"/>
+                            <constraint firstItem="un4-bV-SCH" firstAttribute="top" secondItem="evY-RN-eM1" secondAttribute="bottom" constant="8" id="Ucx-It-YmS"/>
+                            <constraint firstItem="jg1-9c-6Vv" firstAttribute="top" secondItem="goz-Oi-YU8" secondAttribute="top" constant="10" id="ZpC-yH-9HW"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="y7d-e3-MYH" secondAttribute="bottom" constant="10" id="dCi-TL-dUQ"/>
+                            <constraint firstItem="y7d-e3-MYH" firstAttribute="centerY" secondItem="un4-bV-SCH" secondAttribute="centerY" id="lBg-ga-TMb"/>
+                            <constraint firstItem="5ar-Lc-Cha" firstAttribute="leading" secondItem="goz-Oi-YU8" secondAttribute="leading" constant="20" id="lFo-H8-N0S"/>
+                            <constraint firstItem="evY-RN-eM1" firstAttribute="leading" secondItem="5ar-Lc-Cha" secondAttribute="leading" id="odG-Vm-UwQ"/>
+                            <constraint firstItem="5ar-Lc-Cha" firstAttribute="top" secondItem="jg1-9c-6Vv" secondAttribute="bottom" constant="32" id="qQ9-ze-RzQ"/>
+                            <constraint firstItem="y7d-e3-MYH" firstAttribute="leading" secondItem="un4-bV-SCH" secondAttribute="trailing" constant="24" id="vL9-mW-b9V"/>
+                            <constraint firstItem="zfO-8I-Sqw" firstAttribute="centerY" secondItem="5ar-Lc-Cha" secondAttribute="centerY" id="yjZ-0P-TKo"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="goz-Oi-YU8" secondAttribute="bottom" id="2HP-6X-3E8"/>
+                    <constraint firstAttribute="trailing" secondItem="goz-Oi-YU8" secondAttribute="trailing" id="5Y6-En-qi1"/>
+                    <constraint firstItem="goz-Oi-YU8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YzF-Qf-yI4"/>
+                    <constraint firstItem="goz-Oi-YU8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hVE-Zv-FYn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lbldeliveryCharge" destination="4AN-GQ-cZ6" id="SFh-Fn-bvp"/>
+                <outlet property="lblpayableAmount" destination="y7d-e3-MYH" id="OII-xI-QPr"/>
+                <outlet property="lbltotalAmount" destination="zfO-8I-Sqw" id="0LT-OO-weR"/>
+            </connections>
+            <point key="canvasLocation" x="168.84057971014494" y="176.45089285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="navigationColor">
+            <color red="0.078431372549019607" green="0.043137254901960784" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
