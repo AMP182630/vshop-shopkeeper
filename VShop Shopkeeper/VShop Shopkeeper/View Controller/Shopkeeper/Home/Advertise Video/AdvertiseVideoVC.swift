@@ -41,7 +41,7 @@ class AdvertiseVideoVC: UIViewController {
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Advertise Video"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.advertiseVideo
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
         SideMenuController.preferences.basic.menuWidth = self.view.frame.width

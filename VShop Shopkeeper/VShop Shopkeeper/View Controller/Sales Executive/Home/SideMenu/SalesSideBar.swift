@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class SalesSideBar: UIViewController {
     
@@ -31,8 +32,8 @@ class SalesSideBar: UIViewController {
     fileprivate func viewConfiguration() {
         menuListTableView.delegate = self
         menuListTableView.dataSource = self
-        let menuListNib = UINib.init(nibName: "MenuTableViewCell", bundle: nil)
-        self.menuListTableView.register(menuListNib, forCellReuseIdentifier: "MenuTableViewCell")
+        let menuListNib = UINib.init(nibName: MenuTableViewCell.staticIdentifier, bundle: nil)
+        self.menuListTableView.register(menuListNib, forCellReuseIdentifier: MenuTableViewCell.staticIdentifier)
         self.menuListTableView.tableFooterView = UIView()
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         hideMenuView.addGestureRecognizer(tap)
@@ -61,7 +62,7 @@ extension SalesSideBar : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let menuListCell = menuListTableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
+        let menuListCell = menuListTableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.staticIdentifier, for: indexPath) as! MenuTableViewCell
         menuListCell.menuListLabel.text = menuList[indexPath.row]
         return menuListCell
     }
@@ -69,7 +70,7 @@ extension SalesSideBar : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.sideMenuController?.hideMenu()
         if indexPath.row == 0 {
-           sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "SalesCallLog", bundle: nil).instantiateViewController(withIdentifier: "SalesCallLogVC") }, with: "SalesCallLogVC")
+            sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "SalesCallLog", bundle: nil).instantiateViewController(withIdentifier: "SalesCallLogVC") }, with: "SalesCallLogVC")
             sideMenuController?.setContentViewController(with: "SalesCallLogVC")
         }else if indexPath.row == 1{
             sideMenuController?.cache(viewControllerGenerator: { UIStoryboard.init(name: "SalesOrderHistory", bundle: nil).instantiateViewController(withIdentifier: "SalesOrderHistoryVC") }, with: "SalesOrderHistoryVC")
@@ -88,7 +89,40 @@ extension SalesSideBar : UITableViewDataSource,UITableViewDelegate {
                 UIStoryboard.init(name: "SalesProfile", bundle: nil).instantiateViewController(withIdentifier: "SalesProfileVC") }, with: "SalesProfileVC")
             sideMenuController?.setContentViewController(with: "SalesProfileVC")
         }else{
+            Utility.showAlertWithTwoBtns(messgae: LocalisationStrings.AlertMessage.logout, controller: self) { (action) in
+                if action == true {
+                    //apiLogout()
+                    let nav = Constant.Storyboards.Login.instantiateViewController(withIdentifier: "loginNavigationVC")
+                    Constant.General.userdefaults.removeObject(forKey: "otpVerify")
+                    appDelegate.window?.rootViewController = nav
+                }
+            }
             
+        }
+    }
+}
+extension SalesSideBar {
+    
+    //MARK:- API LOGOUT
+    
+    fileprivate func apiLogout() {
+        let params = [
+            kUserId:UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0,
+            kDeviceToken: Constant.DeviceToken.deviceToken,
+            kDeviceType: 1
+            ] as [String : AnyObject]
+        RequestManager.postAPIWithHeader(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                let nav = Constant.Storyboards.Login.instantiateViewController(withIdentifier: "loginNavigationVC")
+                Constant.General.userdefaults.removeObject(forKey: "otpVerify")
+                appDelegate.window?.rootViewController = nav
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+                
+            })
         }
     }
 }

@@ -32,5 +32,9 @@ class LocalisationStrings: NSObject {
         static let addSalesExecutive = "Add Sales Executive"
         static let callLog = "Call Log"
         static let inviteTitle = "Invite"
+        static let ratingReview = "Rating & Review"
+        static let advertiseVideo = "Advertise Video"
+        static let addVideo = "Add Video"
+        static let profile = "Profile"
     }
 }

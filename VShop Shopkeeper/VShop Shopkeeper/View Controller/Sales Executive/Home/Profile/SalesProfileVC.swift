@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenuSwift
+import SwiftyJSON
 
 class SalesProfileVC: UIViewController,UITextFieldDelegate, PassImgDelegate {
     
@@ -20,6 +21,7 @@ class SalesProfileVC: UIViewController,UITextFieldDelegate, PassImgDelegate {
     //MARK:- Variables -
     
     var imgPickerObj = ImagePicker()
+    var profileDetails = NSMutableArray()
     
     //MARK:- View Lifecycle -
     
@@ -31,12 +33,20 @@ class SalesProfileVC: UIViewController,UITextFieldDelegate, PassImgDelegate {
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Profile"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.profile
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         SideMenuController.preferences.basic.menuWidth = self.view.frame.width
         txtfirstName.isUserInteractionEnabled = false
         txtlastName.isUserInteractionEnabled = false
         txtphoneNum.isUserInteractionEnabled = false
+    }
+    
+    func getData() {
+        profileDetails = [
+            dictList?.ownerFirstName ?? "",
+            dictList?.ownerLastName ?? "",
+            dictList?.mobileNumber ?? ""
+        ]
     }
     
     //MARK:- Action -
@@ -57,5 +67,33 @@ class SalesProfileVC: UIViewController,UITextFieldDelegate, PassImgDelegate {
     
     public func selectedImage(image: UIImage) {
         imgProfile.image = image
+    }
+}
+extension SalesProfileVC {
+    
+    //MARK:- GET PROFILE DATA
+    
+    fileprivate func apiGetProfile() {
+        let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
+        RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let dict = jsonData[kData].dictionary {
+                    dictList = UserModel.init(dict: dict)
+                    self.getData()
+                }
+            } else {
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
     }
 }

@@ -47,7 +47,7 @@ class AddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControllerDe
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Add Video"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.addVideo
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         txtvideoLink.delegate = self
         txtvideofilePath.isHidden = true

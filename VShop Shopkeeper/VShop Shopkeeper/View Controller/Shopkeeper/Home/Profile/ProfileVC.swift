@@ -37,25 +37,25 @@ class ProfileVC: UIViewController,PassImgDelegate{
     
     func setUpView(){
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        self.navigationItem.title = "Profile"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.profile
         SideMenuController.preferences.basic.menuWidth = self.view.frame.width
     }
     
     //MARK:- Register XIB -
     
     func registerXIB() {
-        let profileImageNib = UINib.init(nibName: "ProfileImageTableViewCell", bundle: nil)
-        self.tblView.register(profileImageNib, forCellReuseIdentifier: "ProfileImageTableViewCell")
-        let addNewStoreDetailNib = UINib.init(nibName: "AddStoreDetailsTableViewCell", bundle: nil)
-        self.tblView.register(addNewStoreDetailNib, forCellReuseIdentifier: "AddStoreDetailsTableViewCell")
-        let HashTagTableViewNib = UINib.init(nibName: "HashTagTableViewCell", bundle: nil)
-        self.tblView.register(HashTagTableViewNib, forCellReuseIdentifier: "HashTagTableViewCell")
-        let CategoryTableViewNib = UINib.init(nibName: "CategoryTableViewCell", bundle: nil)
-        self.tblView.register(CategoryTableViewNib, forCellReuseIdentifier: "CategoryTableViewCell")
-        let DisplayTimeTableViewNib = UINib.init(nibName: "DisplayTimeTableViewCell", bundle: nil)
-        self.tblView.register(DisplayTimeTableViewNib, forCellReuseIdentifier: "DisplayTimeTableViewCell")
-        let DetailsTableViewNib = UINib.init(nibName: "DetailsTableViewCell", bundle: nil)
-        self.tblView.register(DetailsTableViewNib, forCellReuseIdentifier: "DetailsTableViewCell")
+        let profileImageNib = UINib.init(nibName: ProfileImageTableViewCell.staticIdentifier, bundle: nil)
+        self.tblView.register(profileImageNib, forCellReuseIdentifier: ProfileImageTableViewCell.staticIdentifier)
+        let addNewStoreDetailNib = UINib.init(nibName: AddStoreDetailsTableViewCell.staticIdentifier, bundle: nil)
+        self.tblView.register(addNewStoreDetailNib, forCellReuseIdentifier:  AddStoreDetailsTableViewCell.staticIdentifier)
+        let HashTagTableViewNib = UINib.init(nibName: HashTagTableViewCell.staticIdentifier, bundle: nil)
+        self.tblView.register(HashTagTableViewNib, forCellReuseIdentifier: HashTagTableViewCell.staticIdentifier)
+        let CategoryTableViewNib = UINib.init(nibName:  CategoryTableViewCell.staticIdentifier, bundle: nil)
+        self.tblView.register(CategoryTableViewNib, forCellReuseIdentifier: CategoryTableViewCell.staticIdentifier)
+        let DisplayTimeTableViewNib = UINib.init(nibName: DisplayTimeTableViewCell.staticIdentifier, bundle: nil)
+        self.tblView.register(DisplayTimeTableViewNib, forCellReuseIdentifier: DisplayTimeTableViewCell.staticIdentifier)
+        let DetailsTableViewNib = UINib.init(nibName: DetailsTableViewCell.staticIdentifier, bundle: nil)
+        self.tblView.register(DetailsTableViewNib, forCellReuseIdentifier: DetailsTableViewCell.staticIdentifier)
     }
     
     //MARK:- Populate Tableview cell -
@@ -142,23 +142,23 @@ extension ProfileVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
-            let profileImage = tblView.dequeueReusableCell(withIdentifier: "ProfileImageTableViewCell", for: indexPath) as! ProfileImageTableViewCell
+            let profileImage = tblView.dequeueReusableCell(withIdentifier:  ProfileImageTableViewCell.staticIdentifier, for: indexPath) as! ProfileImageTableViewCell
             return populateProfileImageCell(cell: profileImage, indexPath: indexPath)
         }else if indexPath.section == 1{
-            let cell = tblView.dequeueReusableCell(withIdentifier: "AddStoreDetailsTableViewCell", for: indexPath) as! AddStoreDetailsTableViewCell
+            let cell = tblView.dequeueReusableCell(withIdentifier: AddStoreDetailsTableViewCell.staticIdentifier, for: indexPath) as! AddStoreDetailsTableViewCell
             return populateStoreListCell(cell: cell, indexPath: indexPath)
         }
         else if indexPath.section == 2{
-            let cell = tblView.dequeueReusableCell(withIdentifier: "HashTagTableViewCell", for: indexPath) as! HashTagTableViewCell
+            let cell = tblView.dequeueReusableCell(withIdentifier: HashTagTableViewCell.staticIdentifier, for: indexPath) as! HashTagTableViewCell
             return populateHashTagCell(cell: cell, indexPath: indexPath)
         }else if indexPath.section == 3{
-            let cell = tblView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
+            let cell = tblView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.staticIdentifier, for: indexPath) as! CategoryTableViewCell
             return populateCategoryCell(cell: cell, indexPath: indexPath)
         }else if indexPath.section == 4{
-            let cell = tblView.dequeueReusableCell(withIdentifier: "DisplayTimeTableViewCell", for: indexPath) as! DisplayTimeTableViewCell
+            let cell = tblView.dequeueReusableCell(withIdentifier: DisplayTimeTableViewCell.staticIdentifier, for: indexPath) as! DisplayTimeTableViewCell
             return populateDisplayTimeCell(cell: cell, indexPath: indexPath)
         }else{
-            let cell = tblView.dequeueReusableCell(withIdentifier: "DetailsTableViewCell", for: indexPath) as! DetailsTableViewCell
+            let cell = tblView.dequeueReusableCell(withIdentifier: DetailsTableViewCell.staticIdentifier, for: indexPath) as! DetailsTableViewCell
             return populateDetailsCell(cell: cell, indexPath: indexPath)
         }
     }
@@ -226,28 +226,27 @@ extension ProfileVC : UITableViewDelegate,UITableViewDataSource {
 
 extension ProfileVC {
     //MARK:- GET PROFILE DATA
-       
-       fileprivate func apiGetProfile() {
-           let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
-           RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
-               let jsonData = JSON(response)
-               if jsonData[kSuccess] == true {
-                   if let dict = jsonData[kData].dictionary {
-                       dictList = UserModel.init(dict: dict)
-                      
-                   }
-               } else {
-                   if let messages = jsonData["error"].string {
-                       if messages.count > 0{
-                           Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
-                           })
-                       }
-                   }
-               }
-           })
-           { (error) in
-               Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
-               })
-           }
-       }
+    
+    fileprivate func apiGetProfile() {
+        let userId = UserDefaults.standard.value(forKey:"user_id") as? Int ?? 0
+        RequestManager.getAPIWithURLString(urlPart:"\("")\(userId)",successResult: { (response,statuscode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let dict = jsonData[kData].dictionary {
+                    dictList = UserModel.init(dict: dict)
+                }
+            } else {
+                if let messages = jsonData["error"].string {
+                    if messages.count > 0{
+                        Utility.showAlert(message: messages, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
+    }
 }

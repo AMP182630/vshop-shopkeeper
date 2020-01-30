@@ -45,7 +45,7 @@ class SalesAddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControl
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Add Video"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.addVideo
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         txtvideoLink.delegate = self
         txtvideofilePath.isHidden = true
@@ -162,8 +162,8 @@ class SalesAddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControl
             topFilepath.constant = 30
             topuploadVideo.constant = 15
             heighttxtFIlepath.constant = 45
-//            txtvideofilePath.text = String(contentsOf: videoURL)
-
+            //            txtvideofilePath.text = String(contentsOf: videoURL)
+            
         }
         else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
@@ -175,3 +175,35 @@ class SalesAddVideoVC: UIViewController,UITextFieldDelegate,UIImagePickerControl
         picker.dismiss(animated: true, completion: nil)
     }
 }
+//extension SalesAddVideoVC {
+//
+//    public func apiSendInvitation(){
+//        let params = [
+//            kUserId : dictList?.userId ?? 0,
+//            kvideoName: txtName.text ?? "",
+//            kvideoUrl: videoURLString,
+//            klanguauge: "en"
+//            ] as [String : AnyObject]
+//        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+//            let jsonData = JSON(response)
+//            if jsonData[kSuccess] == true {
+//                if let data = jsonData[kData].dictionary {
+//                    print(data)
+//                    Utility.showAlert(message: LocalisationStrings.AlertMessage.invitationSendSuccessfully, controller: self, alertComplition: { (action) in
+//                    })
+//                }
+//            } else {
+//                if let message = jsonData["message"].string {
+//                    if message.count > 0{
+//                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+//                        })
+//                    }
+//                }
+//            }
+//        })
+//        { (error) in
+//            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+//            })
+//        }
+//    }
+//}

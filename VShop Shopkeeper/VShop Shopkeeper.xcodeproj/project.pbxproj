@@ -88,6 +88,8 @@
 		3492645F237D8C66002178EA /* PermissionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3492645E237D8C66002178EA /* PermissionVC.swift */; };
 		34926462237D8C95002178EA /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34926460237D8C95002178EA /* PermissionCell.swift */; };
 		34926463237D8C95002178EA /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34926461237D8C95002178EA /* PermissionCell.xib */; };
+		34A7F5CD23E2B54700436B63 /* SalesOrderListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7F5CC23E2B54700436B63 /* SalesOrderListModel.swift */; };
+		34A7F5CF23E2CBB600436B63 /* SalesRatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7F5CE23E2CBB600436B63 /* SalesRatingModel.swift */; };
 		34BBB708237E8BC7008BACFE /* OrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BBB707237E8BC7008BACFE /* OrderDetailVC.swift */; };
 		34BBB70B237E9418008BACFE /* PaymentModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BBB709237E9418008BACFE /* PaymentModeCell.swift */; };
 		34BBB70C237E9418008BACFE /* PaymentModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34BBB70A237E9418008BACFE /* PaymentModeCell.xib */; };
@@ -270,6 +272,8 @@
 		3492645E237D8C66002178EA /* PermissionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionVC.swift; sourceTree = "<group>"; };
 		34926460237D8C95002178EA /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
 		34926461237D8C95002178EA /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
+		34A7F5CC23E2B54700436B63 /* SalesOrderListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesOrderListModel.swift; sourceTree = "<group>"; };
+		34A7F5CE23E2CBB600436B63 /* SalesRatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesRatingModel.swift; sourceTree = "<group>"; };
 		34BBB707237E8BC7008BACFE /* OrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVC.swift; sourceTree = "<group>"; };
 		34BBB709237E9418008BACFE /* PaymentModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModeCell.swift; sourceTree = "<group>"; };
 		34BBB70A237E9418008BACFE /* PaymentModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentModeCell.xib; sourceTree = "<group>"; };
@@ -675,6 +679,24 @@
 		348B781C23D88B5C00E0016D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				34A7F5CB23E2B52200436B63 /* Shopkeeper */,
+				34A7F5CA23E2B51800436B63 /* Sales Executive */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		34A7F5CA23E2B51800436B63 /* Sales Executive */ = {
+			isa = PBXGroup;
+			children = (
+				34A7F5CC23E2B54700436B63 /* SalesOrderListModel.swift */,
+				34A7F5CE23E2CBB600436B63 /* SalesRatingModel.swift */,
+			);
+			path = "Sales Executive";
+			sourceTree = "<group>";
+		};
+		34A7F5CB23E2B52200436B63 /* Shopkeeper */ = {
+			isa = PBXGroup;
+			children = (
 				348B781D23D88B5C00E0016D /* ReviewModel.swift */,
 				348B781E23D88B5C00E0016D /* OrderHistoryListModel.swift */,
 				348B781F23D88B5C00E0016D /* NotificationModel.swift */,
@@ -683,7 +705,7 @@
 				340773DD23DADC3A007501F9 /* AdvertiseVideoModel.swift */,
 				34F6B81D23DEF0DF00E696C4 /* RequestCallBack.swift */,
 			);
-			path = Models;
+			path = Shopkeeper;
 			sourceTree = "<group>";
 		};
 		34BBB70E237EBBBC008BACFE /* Profile */ = {
@@ -1238,6 +1260,7 @@
 				34BBB725237EBD64008BACFE /* DetailsTableViewCell.swift in Sources */,
 				34FF182F237D7CBF004C83BC /* AddSalesExecutiveVC.swift in Sources */,
 				34BBB74D237EBE6E008BACFE /* AddStoreDetailsTableViewCell.swift in Sources */,
+				34A7F5CD23E2B54700436B63 /* SalesOrderListModel.swift in Sources */,
 				34BBB729237EBD64008BACFE /* ProfileImageTableViewCell.swift in Sources */,
 				3475225C23E1BEB9005B6C50 /* SalesSideBar.swift in Sources */,
 				34FF1828237D5FF8004C83BC /* MenuTableViewCell.swift in Sources */,
@@ -1328,6 +1351,7 @@
 				34BBB74C237EBE6E008BACFE /* CategoryTableViewCell.swift in Sources */,
 				348B782623D88B5D00E0016D /* SalesExecutiveModel.swift in Sources */,
 				3475224D23E1B9D0005B6C50 /* CartAddressCell.swift in Sources */,
+				34A7F5CF23E2CBB600436B63 /* SalesRatingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
