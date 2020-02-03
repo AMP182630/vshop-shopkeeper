@@ -58,7 +58,7 @@ class RequestManager: NSObject {
     }
     
     class func getAPINewsfeedWithURLString(urlPart: String, successResult:@escaping SuccessHandler,failureResult:@escaping FailureHandler){
-      
+        
         var finalUrl = Constant.baseURL.apiBaseUrl + urlPart
         
         finalUrl = finalUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -102,7 +102,7 @@ class RequestManager: NSObject {
         print("\n\nfinal URL For POST is \(finalUrl) \n AND Parameters are \n\(parameters)\n\n")
         
         Alamofire.request(finalUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString(completionHandler: { (response) in
-         
+            
             print("\n\n RESPONSE IS \n \(response)")
             if response.result.isSuccess{
                 successResult(response.result.value!, (response.response?.statusCode)!)

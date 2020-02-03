@@ -25,7 +25,7 @@ class NewUserAddressVC: UIViewController {
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Customer Cart"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.customerCart
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
     }
@@ -33,12 +33,12 @@ class NewUserAddressVC: UIViewController {
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registerCartBackgroundVideoCallCell = UINib(nibName: "BackgroundVideoCallCell", bundle: nil)
-        self.tblView.register(registerCartBackgroundVideoCallCell, forCellReuseIdentifier: "BackgroundVideoCallCell")
-        let registerCartProductCell = UINib(nibName: "CartProductCell", bundle: nil)
-        self.tblView.register(registerCartProductCell, forCellReuseIdentifier: "CartProductCell")
-        let registerCartPricingCell = UINib(nibName: "PricingCell", bundle: nil)
-        self.tblView.register(registerCartPricingCell, forCellReuseIdentifier: "PricingCell")
+        let registerCartBackgroundVideoCallCell = UINib(nibName: BackgroundVideoCallCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerCartBackgroundVideoCallCell, forCellReuseIdentifier: BackgroundVideoCallCell.staticIdentifier)
+        let registerCartProductCell = UINib(nibName: CartProductCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerCartProductCell, forCellReuseIdentifier: CartProductCell.staticIdentifier)
+        let registerCartPricingCell = UINib(nibName: PricingCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerCartPricingCell, forCellReuseIdentifier: PricingCell.staticIdentifier)
     }
     
     //MARK:- POPULATE TABLE VIEW CELL -
@@ -78,13 +78,13 @@ extension NewUserAddressVC : UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BackgroundVideoCallCell") as! BackgroundVideoCallCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BackgroundVideoCallCell.staticIdentifier) as! BackgroundVideoCallCell
             return populateTableViewvideoCall(cell: cell, indexPath: indexPath)
         }else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CartProductCell") as! CartProductCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CartProductCell.staticIdentifier) as! CartProductCell
             return populateTableViewcartProduct(cell: cell, indexPath: indexPath)
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PricingCell") as! PricingCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: PricingCell.staticIdentifier) as! PricingCell
             return populateTableViewPricingCell(cell: cell, indexPath: indexPath)
         }
     }

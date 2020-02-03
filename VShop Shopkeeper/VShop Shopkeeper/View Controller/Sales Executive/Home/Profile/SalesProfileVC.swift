@@ -52,7 +52,8 @@ class SalesProfileVC: UIViewController,UITextFieldDelegate, PassImgDelegate {
     //MARK:- Action -
     
     @IBAction func btnNotification(_ sender: Any) {
-        
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
     }
     @IBAction func btnProfile(_ sender: Any) {
         delegate = self

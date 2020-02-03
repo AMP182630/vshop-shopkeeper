@@ -30,17 +30,17 @@ class AddressVC: UIViewController {
     //MARK:- Setup Function -
     
     func setupView(){
-        self.navigationItem.title = "Address"
+        self.navigationItem.title = LocalisationStrings.NavigationTitle.address
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     //MARK:- Register XIB -
     
     func registerXibs() {
-        let registerCartBackgroundVideoCallCell = UINib(nibName: "BackgroundVideoCallCell", bundle: nil)
-        self.tblView.register(registerCartBackgroundVideoCallCell, forCellReuseIdentifier: "BackgroundVideoCallCell")
-        let registerShoppingCell = UINib(nibName: "AddressCell", bundle: nil)
-        self.tblView.register(registerShoppingCell, forCellReuseIdentifier: "AddressCell")
+        let registerCartBackgroundVideoCallCell = UINib(nibName: BackgroundVideoCallCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerCartBackgroundVideoCallCell, forCellReuseIdentifier: BackgroundVideoCallCell.staticIdentifier)
+        let registerShoppingCell = UINib(nibName: AddressCell.staticIdentifier, bundle: nil)
+        self.tblView.register(registerShoppingCell, forCellReuseIdentifier: AddressCell.staticIdentifier)
     }
     
     //MARK:- POPULATE TABLE VIEW CELL -
@@ -89,10 +89,10 @@ extension AddressVC : UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BackgroundVideoCallCell") as! BackgroundVideoCallCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BackgroundVideoCallCell.staticIdentifier) as! BackgroundVideoCallCell
             return populateTableViewvideoCall(cell: cell, indexPath: indexPath)
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell") as! AddressCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AddressCell.staticIdentifier) as! AddressCell
             return populateTableViewaddress(cell: cell, indexPath: indexPath)
         }
     }

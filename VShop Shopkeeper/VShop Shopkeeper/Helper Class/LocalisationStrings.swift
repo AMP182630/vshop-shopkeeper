@@ -24,6 +24,7 @@ class LocalisationStrings: NSObject {
         static let logout = "Are you sure you want to logout?"
     }
     struct NavigationTitle {
+        static let customerCart = "Customer Cart"
         static let permission = "Permission"
         static let updateSalesExecutive = "Update Sales Executive"
         static let salesExecutive = "Sales Executive"
@@ -36,5 +37,7 @@ class LocalisationStrings: NSObject {
         static let advertiseVideo = "Advertise Video"
         static let addVideo = "Add Video"
         static let profile = "Profile"
+        static let address = "Address"
+        static let addnewAddress = "Add New Address"
     }
 }

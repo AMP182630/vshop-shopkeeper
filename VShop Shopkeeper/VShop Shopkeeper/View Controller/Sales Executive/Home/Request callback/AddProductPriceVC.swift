@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class AddProductPriceVC: UIViewController {
-
+    
     //MARK:- Outlets -
     
     @IBOutlet weak var imgProduct: UIImageView!
@@ -26,7 +27,7 @@ class AddProductPriceVC: UIViewController {
         super.viewDidLoad()
         setUpView()
     }
-
+    
     //MARK:- Setup Function -
     
     func setUpView(){
@@ -40,5 +41,41 @@ class AddProductPriceVC: UIViewController {
     }
     @IBAction func btnClose(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+extension AddProductPriceVC {
+    
+    //MARK:- API REGISTER
+    
+    public func apiRegister(){
+        let params = [
+            kproductId: "",
+            kproductPrice: txtPrice.text ?? "",
+            kproductQuantity: txtQuantity.text ?? "",
+            kcustomerId : "" ,
+            kUserId : "" ,
+            kDeviceType: 1
+            ] as [String : AnyObject]
+        RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in
+            let jsonData = JSON(response)
+            if jsonData[kSuccess] == true {
+                if let data = jsonData[kData].dictionary {
+                    print(data)
+                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "GetOTPVC") as! GetOTPVC
+                    self.navigationController?.pushViewController(nav, animated: true)
+                }
+            } else {
+                if let message = jsonData["message"].string {
+                    if message.count > 0{
+                        Utility.showAlert(message: message, controller: self, alertComplition: { (action) in
+                        })
+                    }
+                }
+            }
+        })
+        { (error) in
+            Utility.showAlert(message: error.localizedDescription, controller: self, alertComplition: { (completion) in
+            })
+        }
     }
 }

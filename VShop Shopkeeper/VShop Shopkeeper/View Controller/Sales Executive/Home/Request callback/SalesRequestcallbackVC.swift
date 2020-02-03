@@ -59,6 +59,8 @@ class SalesRequestcallbackVC: UIViewController {
         self.sideMenuController?.revealMenu()
     }
     @IBAction func btnNotification(_ sender: Any) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
     }
     @objc func faceTime(sender: UIButton!) {
         if let nav = Storyboard.callLog.instantiate(viewController: OutgoingcallVC.self){

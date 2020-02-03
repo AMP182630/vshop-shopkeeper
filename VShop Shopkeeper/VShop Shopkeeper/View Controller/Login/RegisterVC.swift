@@ -38,7 +38,7 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
     
     func setupView(){
         self.navigationController?.isNavigationBarHidden = true
-//        self.navigationItem.hidesBackButton = true
+        //        self.navigationItem.hidesBackButton = true
         txtphoneNum.delegate = self
     }
     

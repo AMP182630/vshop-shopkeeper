@@ -314,6 +314,9 @@
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JQe-gd-XLw">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="90"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="XNf-bP-xqS"/>
+                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vnT-hg-MLG">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -338,12 +341,12 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="JQe-gd-XLw" firstAttribute="leading" secondItem="Hjr-bV-44Q" secondAttribute="leading" id="0Pb-6C-UyG"/>
                                             <constraint firstItem="PPb-4g-D1B" firstAttribute="centerX" secondItem="Hjr-bV-44Q" secondAttribute="centerX" id="6dB-UU-EJI"/>
+                                            <constraint firstItem="JQe-gd-XLw" firstAttribute="centerX" secondItem="Hjr-bV-44Q" secondAttribute="centerX" id="7bb-ss-hQY"/>
                                             <constraint firstItem="PPb-4g-D1B" firstAttribute="centerY" secondItem="Hjr-bV-44Q" secondAttribute="centerY" id="KnU-en-y6z"/>
-                                            <constraint firstAttribute="bottom" secondItem="JQe-gd-XLw" secondAttribute="bottom" id="XC5-p1-2ax"/>
-                                            <constraint firstAttribute="trailing" secondItem="JQe-gd-XLw" secondAttribute="trailing" id="iUm-lU-0St"/>
-                                            <constraint firstItem="JQe-gd-XLw" firstAttribute="top" secondItem="Hjr-bV-44Q" secondAttribute="top" id="rxq-ei-mpa"/>
+                                            <constraint firstItem="JQe-gd-XLw" firstAttribute="centerY" secondItem="Hjr-bV-44Q" secondAttribute="centerY" id="e9J-H8-pkT"/>
+                                            <constraint firstAttribute="trailing" secondItem="JQe-gd-XLw" secondAttribute="trailing" id="vx3-kl-uMN"/>
+                                            <constraint firstItem="JQe-gd-XLw" firstAttribute="leading" secondItem="Hjr-bV-44Q" secondAttribute="leading" id="yGc-Fa-kLk"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -434,6 +437,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SOs-6e-I6Z">
                                         <rect key="frame" x="32" y="168" width="192" height="40"/>
+                                        <color key="tintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="b8b-Zf-2UE"/>
                                         </constraints>
@@ -459,6 +463,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJB-E4-pTg">
                                         <rect key="frame" x="32" y="240" width="192" height="40"/>
+                                        <color key="tintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="DM8-0t-ql0"/>
                                         </constraints>
@@ -823,6 +828,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-Uq-NH2">
                                                 <rect key="frame" x="20" y="225" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="qJT-1m-Hxc"/>
                                                 </constraints>
@@ -848,6 +854,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dt8-Vx-S49">
                                                 <rect key="frame" x="20" y="300" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="hqA-sD-R04"/>
                                                 </constraints>
@@ -873,6 +880,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0b-VS-YUG">
                                                 <rect key="frame" x="20" y="375" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="zSp-wp-DCe"/>
                                                 </constraints>
@@ -898,6 +906,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jug-fO-Twe">
                                                 <rect key="frame" x="20" y="450" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="HED-zD-ZaQ"/>
                                                 </constraints>
@@ -923,6 +932,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="khB-M6-cIF">
                                                 <rect key="frame" x="20" y="525" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="mhd-Sy-z6d"/>
                                                 </constraints>
@@ -948,6 +958,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fa-gq-aes">
                                                 <rect key="frame" x="20" y="600" width="280" height="40"/>
+                                                <color key="tintColor" red="0.074509803920000006" green="0.039215686270000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="o0z-tz-snk"/>
                                                 </constraints>

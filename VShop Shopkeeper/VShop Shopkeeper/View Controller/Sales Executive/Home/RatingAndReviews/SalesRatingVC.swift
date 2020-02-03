@@ -79,6 +79,8 @@ class SalesRatingVC: UIViewController {
         self.sideMenuController?.revealMenu()
     }
     @IBAction func btnNotification(_ sender: Any) {
+        let controller = Storyboard.notification.instantiate(viewController: NotificationViewController.self)
+        self.navigationController?.pushViewController(controller ?? self, animated: true)
     }
 }
 //MARK:- TableView Delgate and Datasource -
