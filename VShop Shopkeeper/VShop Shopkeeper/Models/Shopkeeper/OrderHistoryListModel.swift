@@ -12,6 +12,8 @@ import SwiftyJSON
 class OrderHistoryListModel: NSObject {
     var customerName, customerImage, customerOrderId, quantity,price, status, date, creditCard, transactionId, totalItemPrice, totalItem, deliveryCharge, GST, AppliedPromotion, AppliedPromotionPrice, TotalAmount : String!
     var customerId : Int!
+    var arrItemList = [ItemListModel]()
+    
     init(dict : [String : JSON]) {
         customerName = dict["customerName"]?.stringValue ?? ""
         customerImage = dict["customerImage"]?.stringValue ?? ""
@@ -34,5 +36,17 @@ class OrderHistoryListModel: NSObject {
             AppliedPromotionPrice = priceDetails["AppliedPromotionPrice"]?.stringValue ?? ""
             TotalAmount = priceDetails["TotalAmount"]?.stringValue ?? ""
         }
+        if let arrItems = dict["items"]?.array {
+            self.arrItemList = arrItems.compactMap({(dict) -> ItemListModel in ItemListModel(dict: dict.dictionaryValue)})
+        }
+    }
+}
+class ItemListModel: NSObject {
+    var price , quantity , productImage: String!
+    
+    init(dict : [String : JSON]) {
+        price = dict["price"]?.stringValue ?? ""
+        quantity = dict["quantity"]?.stringValue ?? ""
+        productImage = dict["productImage"]?.stringValue ?? ""
     }
 }

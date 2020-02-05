@@ -77,6 +77,7 @@ extension LoginVC {
         let params = [
             kPhoneNumber: txtphoneNumber.text ?? "",
             kIMEI: Constant.udid.deviceUdid,
+            klanguauge : "",
             kDeviceType: 1
             ] as [String : AnyObject]
         RequestManager.postAPI(urlPart: "", parameters: params, successResult: { (response,statusCode) in

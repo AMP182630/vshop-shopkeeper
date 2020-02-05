@@ -73,8 +73,8 @@ class Constant: NSObject {
         static var deviceToken = String()
     }
     struct udid {
-           static var deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-       }
+        static var deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+    }
     struct General {
         static let userdefaults:UserDefaults = UserDefaults.standard
     }
